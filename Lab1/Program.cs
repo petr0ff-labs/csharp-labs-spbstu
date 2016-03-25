@@ -5,13 +5,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab1
-{
-    class Program
-    {
-        
-        static void Main(string[] args)
-        {
+namespace Lab1 {
+    class Program {        
+        static void Main(string[] args) {
             Dictionary<string, Type> types = new Dictionary<string, Type>();
             types.Add("int", typeof(int));
             types.Add("uint", typeof(uint));
@@ -42,13 +38,11 @@ namespace Lab1
             }                
         }
 
-        public static void ShowInfo(Type t)
-        {
+        public static void ShowInfo(Type t) {
             ShowTypeInfo(t);
         }
 
-        public static int ShowMainMenu()
-        {
+        public static int ShowMainMenu() {
             Console.WriteLine(
                 @"Выберете необходимое действие:
                 1 – Общая информация по типам
@@ -64,8 +58,7 @@ namespace Lab1
             Environment.Exit(0);
         }
 
-        public static void ShowAllTypeInfo()
-        {
+        public static void ShowAllTypeInfo() {
             Assembly[] refAssemblies = AppDomain.CurrentDomain.GetAssemblies();
             List<Type> types = new List<Type>();
             foreach (Assembly asm in refAssemblies)
@@ -83,8 +76,7 @@ namespace Lab1
                 Метод с наибольшим числом аргументов: " + tInfo.maxMethodArgs);
         }        
 
-        public static void SelectType()
-        {
+        public static void SelectType() {
             Console.WriteLine(
                 @"Выберете тип из списка:
                 1 – uint
@@ -99,8 +91,7 @@ namespace Lab1
                 0 – Выход в главное меню");            
             while (true) {
                 int choice = Int32.Parse(Console.ReadLine());
-                switch (choice)
-                {
+                switch (choice) {
                     case 0:                        
                         Console.Clear();
                         return;
@@ -135,6 +126,7 @@ namespace Lab1
                 }
             }
         }
+
         public static void ShowTypeInfo(Type t) {
             Console.WriteLine(
                 @"Информация по типу: " + t.FullName + @"
@@ -150,11 +142,9 @@ namespace Lab1
                 Нажмите ‘M’ для вывода дополнительной информации по
                 методам:
                 Нажмите ‘0’ для выхода в главное меню");            
-            while (true)
-            {
+            while (true) {
                 char ch = Char.Parse(Console.ReadLine());
-                switch (ch)
-                {
+                switch (ch) {
                     case 'M':
                         break;
                     case '0':
@@ -165,23 +155,17 @@ namespace Lab1
             }            
         }
 
-        public static string printFields(Type t)
-        {
+        public static string printFields(Type t) {
             string s = "";
             foreach (var f in t.GetFields())
-            {
-                s += f.Name + ", ";
-            }
+                s += f.Name + ", ";            
             return (s.Length == 0) ? "-" : s.Remove(s.Length - 2);
         }
 
-        public static string printProperties(Type t)
-        {
+        public static string printProperties(Type t) {
             string s = "";
             foreach (var f in t.GetProperties())
-            {
                 s += f.Name + ", ";
-            }
             return (s.Length == 0) ? "-" : s.Remove(s.Length - 2);
         }
 
