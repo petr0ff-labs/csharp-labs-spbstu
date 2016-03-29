@@ -223,18 +223,20 @@ namespace Lab1 {
         }
 
         public static void getExtendedInfo(Type t) {
-            Console.WriteLine("Название     Число перегрузок     Количество аргументов");
-            Dictionary<string, int> dic = new Dictionary<string, int>();
+            Console.WriteLine("{0,-25}  {1,15}  {2,15}", "Название", "Число перегрузок", "Количество аргументов");
+            Console.WriteLine("-----------------------------------------------------------------");
+            Dictionary <string, int> dic = new Dictionary<string, int>();
             
             foreach (var method in t.GetMethods()) {
                 if (dic.Keys.Contains(method.Name))
                     dic[method.Name]++;
                 else
                     dic.Add(method.Name, 1);
-            }            
-            
-            foreach (var m in dic.Keys)
-                Console.WriteLine(m + "   " + dic[m].ToString() + "    " + getParamsCount(t, m, dic[m]));
+            }
+
+            foreach (var m in dic.Keys) {
+                Console.WriteLine("{0,-25}{1,15}{2,15}", m, dic[m].ToString(), getParamsCount(t, m, dic[m]));
+            }
         }
 
         public static string getParamsCount(Type t, string mn, int reloads) {
