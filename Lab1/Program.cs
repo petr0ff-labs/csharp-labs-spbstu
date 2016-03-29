@@ -12,11 +12,18 @@ namespace Lab1 {
             types.Add("int", typeof(int));
             types.Add("uint", typeof(uint));
             types.Add("string", typeof(string));
-
-            while (true) {
-                int choice = ShowMainMenu();
+            types.Add("float", typeof(float));
+            types.Add("double", typeof(double));
+            types.Add("long", typeof(long));
+            types.Add("char", typeof(string));
+            int choice = 4;
+            do {
+                try {
+                    choice = ShowMainMenu();
+                }
+                catch (FormatException) { }
                 switch (choice) {
-                    case 0:                        
+                    case 0:
                         Exit();
                         break;
                     case 1:
@@ -27,15 +34,19 @@ namespace Lab1 {
                         break;
                     case 3:
                         string t = "";
-                        do {
+                        do
+                        {
                             Console.Write("Введите имя типа: ");
                             t = Console.ReadLine();
                         } while (!types.Keys.Contains(t));
-                        ShowInfo(types[t]);                        
+                        ShowInfo(types[t]);
+                        break;
+                    case 4:
+                        ChangeConsoleView();
                         break;
                     default: break;
                 }
-            }                
+            } while (choice != 0);
         }
 
         public static void ShowInfo(Type t) {
@@ -44,12 +55,13 @@ namespace Lab1 {
 
         public static int ShowMainMenu() {
             Console.WriteLine(
-                @"Выберете необходимое действие:
+                @"Выберите необходимое действие:
                 1 – Общая информация по типам
                 2 – Выбрать из списка
                 3 – Ввести имя типа
                 4 – Параметры консоли
                 0 - Выход из программы");
+            Console.Write("Введите Ваш выбор: ");
             return Int32.Parse(Console.ReadLine());
         }
 
@@ -76,9 +88,48 @@ namespace Lab1 {
                 Метод с наибольшим числом аргументов: " + tInfo.maxMethodArgs);
         }        
 
-        public static void SelectType() {
+        public static void ChangeConsoleView() {
+            int choice = 5;            
             Console.WriteLine(
-                @"Выберете тип из списка:
+                @"Выберите цвет фона консоли:
+                1 – жёлтый
+                2 – синий
+                3 – чёрный
+                4 - очистить консоль 
+                0 – Выход в главное меню");
+            Console.Write("Введите Ваш выбор: ");
+            do {
+                try {
+                    choice = Int32.Parse(Console.ReadLine());
+                }
+                catch (FormatException) { }
+                switch (choice) {
+                    case 0:
+                        Console.Clear();
+                        break;
+                    case 1:
+                        Console.BackgroundColor = ConsoleColor.Yellow;
+                        break;
+                    case 2:
+                        Console.BackgroundColor = ConsoleColor.Blue;
+                        break;
+                    case 3:
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        break;
+                    case 4:
+                        Console.Clear();
+                        break;
+                    default:
+                        Console.WriteLine("Неправильный выбор!");
+                        break;
+                }
+            } while (choice != 0 && choice > 5);
+        }
+
+        public static void SelectType() {
+            int choice = 10;
+            Console.WriteLine(
+                @"Выберите тип из списка:
                 1 – uint
                 2 – int
                 3 – long
@@ -88,48 +139,55 @@ namespace Lab1 {
                 7 - string
                 8 – MyClass
                 9 – MyStruct
-                0 – Выход в главное меню");            
-            while (true) {
-                int choice = Int32.Parse(Console.ReadLine());
+                0 – Выход в главное меню");
+            Console.Write("Введите Ваш выбор: ");
+            do {
+                try {
+                    choice = Int32.Parse(Console.ReadLine());
+                }
+                catch (FormatException) { }
+                
                 switch (choice) {
-                    case 0:                        
-                        Console.Clear();
+                    case 0:
+                        Console.WriteLine("-------------------");
                         return;
                     case 1:
                         ShowTypeInfo(typeof(uint));
-                        return;
+                        break;
                     case 2:
                         ShowTypeInfo(typeof(int));
-                        return;
+                        break;
                     case 3:
                         ShowTypeInfo(typeof(long));
-                        return;
+                        break;
                     case 4:
                         ShowTypeInfo(typeof(float));
-                        return;
+                        break;
                     case 5:
                         ShowTypeInfo(typeof(double));
-                        return;
+                        break;
                     case 6:
                         ShowTypeInfo(typeof(char));
-                        return;
+                        break;
                     case 7:
                         ShowTypeInfo(typeof(string));
-                        return;
+                        break;
                     case 8:
                         ShowTypeInfo(typeof(MyClass));
-                        return;
+                        break;
                     case 9:
                         ShowTypeInfo(typeof(MyStruct));
-                        return;
-                    default: break;
+                        break;
+                    default:
+                        Console.WriteLine("Неправильный выбор!");
+                        break;
                 }
-            }
+            } while (choice != 0 && choice > 9);
         }
 
-        public static void ShowTypeInfo(Type t) {
+        public static void ShowTypeInfo(Type t) {          
             Console.WriteLine(
-                @"Информация по типу: " + t.FullName + @"
+                    @"Информация по типу: " + t.FullName + @"
                 Значимый тип: " + (t.IsValueType ? "+" : "-") + @"
                 Пространство имен: " + t.Namespace + @"
                 Сборка: " + t.Assembly.GetName().Name + @"
@@ -141,19 +199,56 @@ namespace Lab1 {
                 Список свойств: " + printProperties(t) + @"
                 Нажмите ‘M’ для вывода дополнительной информации по
                 методам:
-                Нажмите ‘0’ для выхода в главное меню");            
-            while (true) {
-                char ch = Char.Parse(Console.ReadLine());
+                Нажмите ‘0’ для выхода в главное меню");
+            Console.Write("Введите Ваш выбор: ");
+            char ch = '0';
+            do {
+                try {
+                    ch = Char.Parse(Console.ReadLine());
+                } catch (FormatException) {
+                    Console.WriteLine("Неправильный выбор!");
+                }
                 switch (ch) {
                     case 'M':
+                        getExtendedInfo(t);
                         break;
                     case '0':
-                        Console.Clear();
+                        Console.WriteLine("-------------------");
                         return;
-                    default: break;
+                    default:
+                        Console.WriteLine("Неправильный выбор!");
+                        break;
                 }
-            }            
+            } while (ch != '0' && ch.ToString().Length > 1);
         }
+
+        public static void getExtendedInfo(Type t) {
+            Console.WriteLine("Название     Число перегрузок     Количество аргументов");
+            Dictionary<string, int> dic = new Dictionary<string, int>();
+            
+            foreach (var method in t.GetMethods()) {
+                if (dic.Keys.Contains(method.Name))
+                    dic[method.Name]++;
+                else
+                    dic.Add(method.Name, 1);
+            }            
+            
+            foreach (var m in dic.Keys)
+                Console.WriteLine(m + "   " + dic[m].ToString() + "    " + getParamsCount(t, m, dic[m]));
+        }
+
+        public static string getParamsCount(Type t, string mn, int reloads) {
+            int[] pars = (from m in t.GetMethods() where m.Name == mn select m.GetParameters().Length).ToArray();
+            int minArgs = pars[0];
+            int maxArgs = pars[0];
+            for (int i = 1; i < pars.Length; i++) {                
+                if (pars[i] > maxArgs)                  
+                    maxArgs = pars[i];
+                if (pars[i] < minArgs)
+                    minArgs = pars[i];
+            }
+            return (minArgs != maxArgs && reloads > 1) ? (minArgs + ".." + maxArgs) : minArgs.ToString();
+        }               
 
         public static string printFields(Type t) {
             string s = "";
