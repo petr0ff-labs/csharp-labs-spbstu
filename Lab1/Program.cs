@@ -16,7 +16,7 @@ namespace Lab1 {
             types.Add("double", typeof(double));
             types.Add("long", typeof(long));
             types.Add("char", typeof(string));
-            int choice = 4;
+            int choice = 5;
             do {
                 try {
                     choice = ShowMainMenu();
