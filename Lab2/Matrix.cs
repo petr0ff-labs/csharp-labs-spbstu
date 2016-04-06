@@ -37,7 +37,7 @@ namespace Lab2 {
 
         public int Size {
             get {
-                if (!isSquared())
+                if (!IsSquared)
                     throw new Exception("Матрица должна быть квадратной!");
                 return this.n * this.m;
             }
@@ -53,47 +53,57 @@ namespace Lab2 {
             set { this.data[i, j] = value; }      
         }
 
-        public bool isEmpty() {
-            for (int i = 0; i < this.Rows; i++)
-                for (int j = 0; j < this.Columns; j++)
-                    if (this[i, j] != 0)
-                        return false;
-            return true;
+        public bool IsEmpty {
+            get {
+                for (int i = 0; i < this.Rows; i++)
+                    for (int j = 0; j < this.Columns; j++)
+                        if (this[i, j] != 0)
+                            return false;
+                return true;
+            }
         }
 
-        public bool isSquared() {
-            return (this.n == this.m);
+        public bool IsSquared {
+            get {
+                return (this.n == this.m);
+            }
         }
 
-        public bool isSymmetric() {
-            if (!isSquared())
-                return false;
-            for (int i = 0; i < this.Rows; i++)
-                for (int j = 0; j < this.Columns; j++)
-                    if (this[i, j] != this[j, i])
-                        return false;
+        public bool IsSymmetric {
+            get {
+                if (!IsSquared)
+                    return false;
+                for (int i = 0; i < this.Rows; i++)
+                    for (int j = 0; j < this.Columns; j++)
+                        if (this[i, j] != this[j, i])
+                            return false;
 
-            return true;
+                return true;
+            }
         }
 
-        public bool isDiagonal() {
-            if (!isSquared())
-                return false;
-            for (int i = 0; i < this.Rows; i++)
-                for (int j = 0; j < this.Columns; j++)
-                    if (i != j && this[i, j] != 0)
-                        return false;
-
-            return true;
+        public bool IsDiagonal {
+            get {
+                if (!IsSquared)
+                    return false;
+                for (int i = 0; i < this.Rows; i++)
+                    for (int j = 0; j < this.Columns; j++)
+                        if (i != j && this[i, j] != 0)
+                            return false;
+            
+                return true;
+            }
         }
 
-        public bool isUnity() {
-            for (int i = 0; i < this.Rows; i++)
-                for (int j = 0; j < this.Columns; j++)
-                    if (this[i, j] != 1)
-                        return false;
+        public bool IsUnity {
+            get {
+                for (int i = 0; i < this.Rows; i++)
+                    for (int j = 0; j < this.Columns; j++)
+                        if (this[i, j] != 1)
+                            return false;
 
-            return true;
+                return true;
+            }
         }
 
         public static bool isEqual(Matrix m1, Matrix m2) {
@@ -162,12 +172,12 @@ namespace Lab2 {
         }
 
         public double Trace() {
-            if (!isSquared())
+            if (!IsSquared)
                 throw new Exception("Матрица должна быть квадратной!");
             double sum = 0.0;
-            if (isEmpty())
+            if (IsEmpty)
                 return sum;
-            if (isUnity())
+            if (IsUnity)
                 return 1 * Rows;
             for (int i = 0; i < Rows; i++)
                 if (i < Columns) 

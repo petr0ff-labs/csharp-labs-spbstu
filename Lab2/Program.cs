@@ -100,7 +100,7 @@ namespace Lab2 {
                             return m;
                         Console.WriteLine("Матрица ");
                         Console.Write(m.ToString());
-                        res = m.isSquared() ? "Квадратная" : "Не квадратная";
+                        res = m.IsSquared ? "Квадратная" : "Не квадратная";
                         Console.WriteLine(res);
                         break;
                     case 4:
@@ -108,7 +108,7 @@ namespace Lab2 {
                             return m;
                         Console.WriteLine("Матрица ");
                         Console.Write(m.ToString());
-                        res = m.isEmpty() ? "Нулевая" : "Не нулевая";
+                        res = m.IsEmpty ? "Нулевая" : "Не нулевая";
                         Console.WriteLine(res);
                         break;
                     case 5:
@@ -116,7 +116,7 @@ namespace Lab2 {
                             return m;
                         Console.WriteLine("Матрица ");
                         Console.Write(m.ToString());
-                        res = m.isSymmetric() ? "Симметрична" : "Не симметрична";
+                        res = m.IsSymmetric ? "Симметрична" : "Не симметрична";
                         Console.WriteLine(res);
                         break;
                     case 6:
@@ -124,7 +124,7 @@ namespace Lab2 {
                             return m;
                         Console.WriteLine("Матрица ");
                         Console.Write(m.ToString());
-                        res = m.isUnity() ? "Единичная" : "Не единичная";
+                        res = m.IsUnity ? "Единичная" : "Не единичная";
                         Console.WriteLine(res);
                         break;
                     case 7:
@@ -132,7 +132,7 @@ namespace Lab2 {
                             return m;
                         Console.WriteLine("Матрица ");
                         Console.Write(m.ToString());
-                        res = m.isDiagonal() ? "Диагональная" : "Не диагональная";
+                        res = m.IsDiagonal ? "Диагональная" : "Не диагональная";
                         Console.WriteLine(res);
                         break;
                     case 8:
