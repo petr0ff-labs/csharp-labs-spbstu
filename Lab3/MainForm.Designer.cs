@@ -24,101 +24,112 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.pointsButton = new System.Windows.Forms.Button();
+            this.paramsButton = new System.Windows.Forms.Button();
+            this.curveLineButton = new System.Windows.Forms.Button();
+            this.polyLineButton = new System.Windows.Forms.Button();
+            this.bezLineButton = new System.Windows.Forms.Button();
+            this.fillPointsButton = new System.Windows.Forms.Button();
+            this.moveButton = new System.Windows.Forms.Button();
+            this.clearFromButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // pointsButton
             // 
-            this.button1.Location = new System.Drawing.Point(20, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Точки";
-            this.button1.UseVisualStyleBackColor = true;
+            this.pointsButton.Location = new System.Drawing.Point(20, 15);
+            this.pointsButton.Name = "pointsButton";
+            this.pointsButton.Size = new System.Drawing.Size(120, 40);
+            this.pointsButton.TabIndex = 0;
+            this.pointsButton.Text = "Точки";
+            this.pointsButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // paramsButton
             // 
-            this.button3.Location = new System.Drawing.Point(20, 61);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(120, 40);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Параметры";
-            this.button3.UseVisualStyleBackColor = true;
+            this.paramsButton.Location = new System.Drawing.Point(20, 61);
+            this.paramsButton.Name = "paramsButton";
+            this.paramsButton.Size = new System.Drawing.Size(120, 40);
+            this.paramsButton.TabIndex = 2;
+            this.paramsButton.Text = "Параметры";
+            this.paramsButton.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // curveLineButton
             // 
-            this.button4.Location = new System.Drawing.Point(20, 107);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(120, 40);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Кривая";
-            this.button4.UseVisualStyleBackColor = true;
+            this.curveLineButton.Location = new System.Drawing.Point(20, 107);
+            this.curveLineButton.Name = "curveLineButton";
+            this.curveLineButton.Size = new System.Drawing.Size(120, 40);
+            this.curveLineButton.TabIndex = 3;
+            this.curveLineButton.Text = "Кривая";
+            this.curveLineButton.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // polyLineButton
             // 
-            this.button5.Location = new System.Drawing.Point(20, 153);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(120, 40);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Ломанная";
-            this.button5.UseVisualStyleBackColor = true;
+            this.polyLineButton.Location = new System.Drawing.Point(20, 153);
+            this.polyLineButton.Name = "polyLineButton";
+            this.polyLineButton.Size = new System.Drawing.Size(120, 40);
+            this.polyLineButton.TabIndex = 4;
+            this.polyLineButton.Text = "Ломанная";
+            this.polyLineButton.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // bezLineButton
             // 
-            this.button6.Location = new System.Drawing.Point(20, 199);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(120, 40);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Безье";
-            this.button6.UseVisualStyleBackColor = true;
+            this.bezLineButton.Location = new System.Drawing.Point(20, 199);
+            this.bezLineButton.Name = "bezLineButton";
+            this.bezLineButton.Size = new System.Drawing.Size(120, 40);
+            this.bezLineButton.TabIndex = 5;
+            this.bezLineButton.Text = "Безье";
+            this.bezLineButton.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // fillPointsButton
             // 
-            this.button7.Location = new System.Drawing.Point(20, 245);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(120, 40);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Заполненная";
-            this.button7.UseVisualStyleBackColor = true;
+            this.fillPointsButton.Location = new System.Drawing.Point(20, 245);
+            this.fillPointsButton.Name = "fillPointsButton";
+            this.fillPointsButton.Size = new System.Drawing.Size(120, 40);
+            this.fillPointsButton.TabIndex = 6;
+            this.fillPointsButton.Text = "Заполненная";
+            this.fillPointsButton.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // cancelButton
             // 
-            this.button8.Location = new System.Drawing.Point(20, 291);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(120, 40);
-            this.button8.TabIndex = 7;
-            this.button8.Text = "Движение";
-            this.button8.UseVisualStyleBackColor = true;
+            this.moveButton.Location = new System.Drawing.Point(20, 291);
+            this.moveButton.Name = "cancelButton";
+            this.moveButton.Size = new System.Drawing.Size(120, 40);
+            this.moveButton.TabIndex = 7;
+            this.moveButton.Text = "Движение";
+            this.moveButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // clearFromButton
             // 
-            this.button2.Location = new System.Drawing.Point(20, 337);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 40);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Очистить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.clearFromButton.Location = new System.Drawing.Point(20, 337);
+            this.clearFromButton.Name = "clearFromButton";
+            this.clearFromButton.Size = new System.Drawing.Size(120, 40);
+            this.clearFromButton.TabIndex = 8;
+            this.clearFromButton.Text = "Очистить";
+            this.clearFromButton.UseVisualStyleBackColor = true;
+            // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(20, 382);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(120, 40);
+            this.exitButton.TabIndex = 4;
+            this.exitButton.Text = "Выход";
+            this.exitButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 495);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.clearFromButton);
+            this.Controls.Add(this.moveButton);
+            this.Controls.Add(this.fillPointsButton);
+            this.Controls.Add(this.bezLineButton);
+            this.Controls.Add(this.polyLineButton);
+            this.Controls.Add(this.curveLineButton);
+            this.Controls.Add(this.paramsButton);
+            this.Controls.Add(this.pointsButton);
+            this.Controls.Add(this.exitButton);
             this.Name = "MainForm";
             this.Text = "ФОРМА";
             this.ResumeLayout(false);
@@ -127,14 +138,15 @@
         
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button pointsButton;
+        private System.Windows.Forms.Button paramsButton;
+        private System.Windows.Forms.Button curveLineButton;
+        private System.Windows.Forms.Button polyLineButton;
+        private System.Windows.Forms.Button bezLineButton;
+        private System.Windows.Forms.Button fillPointsButton;
+        private System.Windows.Forms.Button moveButton;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button clearFromButton;
     }
 }
 

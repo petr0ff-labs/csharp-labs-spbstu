@@ -35,8 +35,8 @@ namespace Lab3 {
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -94,7 +94,6 @@ namespace Lab3 {
             // 
             this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.SelectedText = "Синий";
             this.comboBox1.Items.AddRange(new object[] {
             "Синий",
             "Чёрный",
@@ -108,8 +107,8 @@ namespace Lab3 {
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.SelectedText = "4";
             this.comboBox2.Items.AddRange(new object[] {
+            "3",
             "4",
             "5",
             "6",
@@ -124,8 +123,7 @@ namespace Lab3 {
             // 
             // comboBox3
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.SelectedText = "Чёрный";
+            this.comboBox3.FormattingEnabled = true;            
             this.comboBox3.Items.AddRange(new object[] {
             "Синий",
             "Чёрный",
@@ -139,7 +137,6 @@ namespace Lab3 {
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.SelectedText = "1";
             this.comboBox4.Items.AddRange(new object[] {
             "1",
             "2",
@@ -150,23 +147,23 @@ namespace Lab3 {
             this.comboBox4.Size = new System.Drawing.Size(48, 24);
             this.comboBox4.TabIndex = 8;
             // 
-            // button1
+            // saveButton
             // 
-            this.button1.Location = new System.Drawing.Point(48, 378);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 52);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.saveButton.Location = new System.Drawing.Point(48, 378);
+            this.saveButton.Name = "pointsButton";
+            this.saveButton.Size = new System.Drawing.Size(130, 52);
+            this.saveButton.TabIndex = 9;
+            this.saveButton.Text = "Сохранить";
+            this.saveButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // cancelButton
             // 
-            this.button2.Location = new System.Drawing.Point(209, 378);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 52);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Отменить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.cancelButton.Location = new System.Drawing.Point(209, 378);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(130, 52);
+            this.cancelButton.TabIndex = 10;
+            this.cancelButton.Text = "Закрыть";
+            this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // comboBox5
             // 
@@ -185,8 +182,8 @@ namespace Lab3 {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 467);
             this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox2);
@@ -214,8 +211,8 @@ namespace Lab3 {
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.ComboBox comboBox5;
     }
 }
