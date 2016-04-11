@@ -38,7 +38,7 @@
             // 
             // pointsButton
             // 
-            this.pointsButton.Location = new System.Drawing.Point(20, 15);
+            this.pointsButton.Location = new System.Drawing.Point(10, 15);
             this.pointsButton.Name = "pointsButton";
             this.pointsButton.Size = new System.Drawing.Size(120, 40);
             this.pointsButton.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             // paramsButton
             // 
-            this.paramsButton.Location = new System.Drawing.Point(20, 61);
+            this.paramsButton.Location = new System.Drawing.Point(10, 61);
             this.paramsButton.Name = "paramsButton";
             this.paramsButton.Size = new System.Drawing.Size(120, 40);
             this.paramsButton.TabIndex = 2;
@@ -56,7 +56,7 @@
             // 
             // curveLineButton
             // 
-            this.curveLineButton.Location = new System.Drawing.Point(20, 107);
+            this.curveLineButton.Location = new System.Drawing.Point(10, 107);
             this.curveLineButton.Name = "curveLineButton";
             this.curveLineButton.Size = new System.Drawing.Size(120, 40);
             this.curveLineButton.TabIndex = 3;
@@ -65,7 +65,7 @@
             // 
             // polyLineButton
             // 
-            this.polyLineButton.Location = new System.Drawing.Point(20, 153);
+            this.polyLineButton.Location = new System.Drawing.Point(10, 153);
             this.polyLineButton.Name = "polyLineButton";
             this.polyLineButton.Size = new System.Drawing.Size(120, 40);
             this.polyLineButton.TabIndex = 4;
@@ -74,7 +74,7 @@
             // 
             // bezLineButton
             // 
-            this.bezLineButton.Location = new System.Drawing.Point(20, 199);
+            this.bezLineButton.Location = new System.Drawing.Point(10, 199);
             this.bezLineButton.Name = "bezLineButton";
             this.bezLineButton.Size = new System.Drawing.Size(120, 40);
             this.bezLineButton.TabIndex = 5;
@@ -83,7 +83,7 @@
             // 
             // fillPointsButton
             // 
-            this.fillPointsButton.Location = new System.Drawing.Point(20, 245);
+            this.fillPointsButton.Location = new System.Drawing.Point(10, 245);
             this.fillPointsButton.Name = "fillPointsButton";
             this.fillPointsButton.Size = new System.Drawing.Size(120, 40);
             this.fillPointsButton.TabIndex = 6;
@@ -92,7 +92,7 @@
             // 
             // moveButton
             // 
-            this.moveButton.Location = new System.Drawing.Point(20, 291);
+            this.moveButton.Location = new System.Drawing.Point(10, 291);
             this.moveButton.Name = "moveButton";
             this.moveButton.Size = new System.Drawing.Size(120, 40);
             this.moveButton.TabIndex = 7;
@@ -101,7 +101,7 @@
             // 
             // clearFromButton
             // 
-            this.clearFromButton.Location = new System.Drawing.Point(20, 337);
+            this.clearFromButton.Location = new System.Drawing.Point(10, 337);
             this.clearFromButton.Name = "clearFromButton";
             this.clearFromButton.Size = new System.Drawing.Size(120, 40);
             this.clearFromButton.TabIndex = 8;
@@ -110,7 +110,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(20, 382);
+            this.exitButton.Location = new System.Drawing.Point(10, 382);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(120, 40);
             this.exitButton.TabIndex = 4;
@@ -119,6 +119,7 @@
             // 
             // drawPanel
             // 
+            this.drawPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.drawPanel.Location = new System.Drawing.Point(146, 15);
             this.drawPanel.Name = "drawPanel";
             this.drawPanel.Size = new System.Drawing.Size(320, 468);

@@ -14,12 +14,19 @@ namespace Lab3 {
         private string  pointColorSelected,
                         pointSizeSelected,
                         lineColorSelected,
-                        lineSizeSelected;
+                        lineSizeSelected,
+                        movementSelected;
+        private static bool isChanged;
         private bool bExit;
+
+        public static bool IsChanged{
+            get { return isChanged; }
+        }
 
         //public static bool isShown = true;
 
         public ParamsForm() {
+            isChanged = false;
             try {
                 colors.Add("Синий", Color.Blue);
                 colors.Add("Чёрный", Color.Black);
@@ -38,12 +45,15 @@ namespace Lab3 {
             pointSizeSelected = (this.comboBox2.SelectedItem == null) ? "3" : this.comboBox2.SelectedItem.ToString();
             lineColorSelected = (this.comboBox3.SelectedItem == null) ? "Чёрный" : this.comboBox3.SelectedItem.ToString();
             lineSizeSelected = (this.comboBox4.SelectedItem == null) ? "1" : this.comboBox4.SelectedItem.ToString();
+            movementSelected = (this.comboBox5.SelectedItem == null) ? "С сохранением" : this.comboBox5.SelectedItem.ToString();
             MainForm.PointColor = colors[pointColorSelected];
             MainForm.PointSize = Int32.Parse(pointSizeSelected);
             MainForm.LineColor = colors[lineColorSelected];
             MainForm.LineSize = Int32.Parse(lineSizeSelected);
+            MainForm.MovementType = movementSelected;
             bExit = true;
-            this.Close();
+            isChanged = true;
+            this.Close();            
         }
 
         private void CancelClick(object sender, EventArgs e) {

@@ -10,24 +10,29 @@ using System.Windows.Forms;
 
 namespace Lab3 {
     public partial class MainForm : Form {
-        private List<Point> arPoints = new List<Point>();
+        private Random rnd;
+        private List<Point> arPoints = new List<Point>();        
         private static bool bAddPoints, bExit;
         private static int pointSize = 5;
         private static Color pointColor = Color.Blue;
         private static int lineSize = 1;
         private static Color lineColor = Color.Black;
+        private static string movementType = "С сохранением";
         private RectangleF drawRect;
         private StringFormat sf;
         private Graphics g;
-        private enum eLineType { None, Curved, Filled, Polygone, Bezier };
+        private enum eLineType { None, Curved, Filled, Polygone, Bezier };        
         private eLineType lineType;
         private Timer moveTimer;
-        private static int interval = 200;
-        private int offsetX = 60;
-        private int offsetY = 60;
+        private int interval = 50;
+        private int offsetX = 15;
+        private int offsetY = 15;
+        private int[] randX;
+        private int[] randY;
 
         public MainForm() {
             sf = new StringFormat();
+            rnd = new Random();
             moveTimer = new Timer();
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
@@ -45,8 +50,8 @@ namespace Lab3 {
             FormClosing += MainFormClose;
             KeyPreview = true;
             KeyDown += new KeyEventHandler(MainFormKeyDown);
-        }        
-                
+        }                
+
         public static Color PointColor {
             get { return pointColor; }
             set { pointColor = value; }
@@ -67,6 +72,11 @@ namespace Lab3 {
             set { lineSize = value; }
         }
 
+        public static string MovementType {
+            get { return movementType; }
+            set { movementType = value; }
+        }
+
         private void InitRect() {            
             sf.LineAlignment = StringAlignment.Center;
             sf.Alignment = StringAlignment.Center;
@@ -80,7 +90,7 @@ namespace Lab3 {
         private void ParamsClick(object sender, EventArgs e) {
             moveTimer.Stop();
             var paramsForm = new ParamsForm();
-            paramsForm.Show();
+            paramsForm.Show();            
         }
 
         private void OnFormClick(object sender, MouseEventArgs e) {
@@ -101,22 +111,28 @@ namespace Lab3 {
             moveTimer.Start();            
         }
 
-        private void TimerTickHandler(object sender, EventArgs e) {
-            for (int i = 0; i < arPoints.Count; i++) {
-                arPoints[i] = new Point(arPoints[i].X + offsetX, arPoints[i].Y + offsetY);
-                if ((this.drawPanel.Size.Width) < (arPoints[i].X + 5)) {
-                    offsetX = -offsetX;
+        private void ChangeCoordinates(int offsetx, int offsety) {
+            
+            for (int i = 0; i < arPoints.Count; i++) {                
+                arPoints[i] = new Point(arPoints[i].X + offsetx, arPoints[i].Y + offsety);
+                if (arPoints[i].X > this.drawPanel.Size.Width - pointSize) {
+                    offsetX = -offsetx;
                 }
-                if (arPoints[i].X < 20) {
-                    offsetX = -offsetX;
+                else if (arPoints[i].X < pointSize) {
+                    offsetX = -offsetx;
                 }
-                if ((this.drawPanel.Size.Height) < (arPoints[i].Y + 10)) {
-                    offsetY = -offsetY;
+                if (arPoints[i].Y > this.drawPanel.Size.Height - pointSize) {
+                    offsetY = -offsety;
                 }
-                if (arPoints[i].Y < 40) {
-                    offsetY = -offsetY;
+                else if (arPoints[i].Y < pointSize) {
+                    offsetY = -offsety;
                 }
             }
+        }
+
+        private void TimerTickHandler(object sender, EventArgs e) {            
+            if (movementType.Equals("С сохранением"))
+                ChangeCoordinates(offsetX, offsetY);
             Refresh();
         }
 
@@ -167,7 +183,7 @@ namespace Lab3 {
                     }
                 }
             } else {
-                InitPointsError("Нажмите кнопку \"Точки\" и добавьте точек.");
+                InitPointsError("Нажмите кнопку \"Точки\" и добавьте точек на панель.");
             }
         }
 
@@ -219,12 +235,12 @@ namespace Lab3 {
                     MoveClick(sender, e);
                     break;
                 case (Keys.A):
-                    interval -= 10;
-                    TimerTickHandler(sender, e);
+                    this.offsetX -= 10;
+                    this.offsetY -= 10;
                     break;
                 case (Keys.S):
-                    interval += 20;
-                    TimerTickHandler(sender, e);
+                    this.offsetX += 10;
+                    this.offsetY += 10;
                     break;
                 default:
                     break;
