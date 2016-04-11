@@ -33,6 +33,7 @@
             this.moveButton = new System.Windows.Forms.Button();
             this.clearFromButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.drawPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // pointsButton
@@ -89,10 +90,10 @@
             this.fillPointsButton.Text = "Заполненная";
             this.fillPointsButton.UseVisualStyleBackColor = true;
             // 
-            // cancelButton
+            // moveButton
             // 
             this.moveButton.Location = new System.Drawing.Point(20, 291);
-            this.moveButton.Name = "cancelButton";
+            this.moveButton.Name = "moveButton";
             this.moveButton.Size = new System.Drawing.Size(120, 40);
             this.moveButton.TabIndex = 7;
             this.moveButton.Text = "Движение";
@@ -116,11 +117,19 @@
             this.exitButton.Text = "Выход";
             this.exitButton.UseVisualStyleBackColor = true;
             // 
+            // drawPanel
+            // 
+            this.drawPanel.Location = new System.Drawing.Point(146, 15);
+            this.drawPanel.Name = "drawPanel";
+            this.drawPanel.Size = new System.Drawing.Size(320, 468);
+            this.drawPanel.TabIndex = 9;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 495);
+            this.Controls.Add(this.drawPanel);
             this.Controls.Add(this.clearFromButton);
             this.Controls.Add(this.moveButton);
             this.Controls.Add(this.fillPointsButton);
@@ -147,6 +156,7 @@
         private System.Windows.Forms.Button moveButton;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button clearFromButton;
+        private System.Windows.Forms.Panel drawPanel;
     }
 }
 

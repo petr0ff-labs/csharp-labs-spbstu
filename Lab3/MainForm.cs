@@ -11,9 +11,7 @@ using System.Windows.Forms;
 namespace Lab3 {
     public partial class MainForm : Form {
         private List<Point> arPoints = new List<Point>();
-        private static bool bAddPoints, bDrawCurve, bDrawPolygon, 
-                            bDrawBezier, bDrawFill, bClear, 
-                            bExit, bMove;
+        private static bool bAddPoints, bExit;
         private static int pointSize = 5;
         private static Color pointColor = Color.Blue;
         private static int lineSize = 1;
@@ -24,14 +22,16 @@ namespace Lab3 {
         private enum eLineType { None, Curved, Filled, Polygone, Bezier };
         private eLineType lineType;
         private Timer moveTimer;
-        private static int interval = 100;
+        private static int interval = 200;
+        private int offsetX = 60;
+        private int offsetY = 60;
 
         public MainForm() {
             sf = new StringFormat();
             moveTimer = new Timer();
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
-            Paint += MainFormPaint;
+            this.drawPanel.Paint += MainFormPaint;
             this.pointsButton.Click += PointsDrawClick;
             this.paramsButton.Click += ParamsClick;
             this.curveLineButton.Click += CurveLineDrawClick;
@@ -40,8 +40,8 @@ namespace Lab3 {
             this.clearFromButton.Click += ClearFormClick;
             this.fillPointsButton.Click += FillDrawClick;
             this.moveButton.Click += MoveClick;            
-            exitButton.Click += ExitButton_Click;
-            MouseClick += OnFormClick;
+            this.exitButton.Click += ExitButton_Click;
+            this.drawPanel.MouseClick += OnFormClick;
             FormClosing += MainFormClose;
             KeyPreview = true;
             KeyDown += new KeyEventHandler(MainFormKeyDown);
@@ -70,8 +70,8 @@ namespace Lab3 {
         private void InitRect() {            
             sf.LineAlignment = StringAlignment.Center;
             sf.Alignment = StringAlignment.Center;
-            float x = 150.0F;
-            float y = 150.0F;
+            float x = (this.drawPanel.Location.X / 2) - 50;
+            float y = this.drawPanel.Location.Y / 2;
             float width = 200.0F;
             float height = 50.0F;
             drawRect = new RectangleF(x, y, width, height);
@@ -91,6 +91,7 @@ namespace Lab3 {
         }
 
         private void MoveClick(object sender, EventArgs e) {
+            bAddPoints = false;
             if (arPoints.Count == 0) {
                 ShowAlert("Сначала добавьте точек!");
                 return;
@@ -101,16 +102,20 @@ namespace Lab3 {
         }
 
         private void TimerTickHandler(object sender, EventArgs e) {
-            Random rnd = new Random();
-            Console.WriteLine(interval);
-            for (int j = 1; j <= interval; j++) {
-                for (int i = 0; i < arPoints.Count; i++) {
-                    int x2 = rnd.Next(140, this.Size.Width - 50);
-                    int y2 = rnd.Next(20, this.Size.Height - 50);
-                    int x = arPoints[i].X + (x2 - arPoints[i].X) * j / interval;
-                    int y = arPoints[i].Y + (y2 - arPoints[i].Y) * j / interval;
-                    arPoints[i] = new Point(x, y);                    
-                }                
+            for (int i = 0; i < arPoints.Count; i++) {
+                arPoints[i] = new Point(arPoints[i].X + offsetX, arPoints[i].Y + offsetY);
+                if ((this.drawPanel.Size.Width) < (arPoints[i].X + 5)) {
+                    offsetX = -offsetX;
+                }
+                if (arPoints[i].X < 20) {
+                    offsetX = -offsetX;
+                }
+                if ((this.drawPanel.Size.Height) < (arPoints[i].Y + 10)) {
+                    offsetY = -offsetY;
+                }
+                if (arPoints[i].Y < 40) {
+                    offsetY = -offsetY;
+                }
             }
             Refresh();
         }
@@ -125,8 +130,6 @@ namespace Lab3 {
             Pen linePen = new Pen(lineColor, lineSize);
             SolidBrush brush = new SolidBrush(lineColor);
             InitRect();
-            if (bClear)
-                g.Clear(this.BackColor);
             if (arPoints.Count > 0) {
                 foreach (var p in arPoints) {
                     g.DrawLine(pointPen, p.X, p.Y, p.X + PointSize, p.Y);
