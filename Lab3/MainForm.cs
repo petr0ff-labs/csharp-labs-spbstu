@@ -111,8 +111,7 @@ namespace Lab3 {
             moveTimer.Start();            
         }
 
-        private void ChangeCoordinates(int offsetx, int offsety) {
-            
+        private void ChangeCoordinates(int offsetx, int offsety) {            
             for (int i = 0; i < arPoints.Count; i++) {                
                 arPoints[i] = new Point(arPoints[i].X + offsetx, arPoints[i].Y + offsety);
                 if (arPoints[i].X > this.drawPanel.Size.Width - pointSize) {
@@ -222,6 +221,8 @@ namespace Lab3 {
                 lineType = eLineType.None;
                 bAddPoints = false;
                 arPoints.Clear();
+                offsetX = 15;
+                offsetY = 15;
                 Refresh();
             }
         }
