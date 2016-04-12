@@ -11,13 +11,16 @@ using System.Windows.Forms;
 namespace Lab3 {
     public partial class MainForm : Form {
         private Random rnd;
+        private int iPointToDrag = -1;
         private List<Point> arPoints = new List<Point>();        
-        private static bool bAddPoints, bExit, moving;
+        private static bool bAddPoints, bExit, bMove, bDrag;
         private static int pointSize = 5;
         private static Color pointColor = Color.Blue;
         private static int lineSize = 1;
         private static Color lineColor = Color.Black;
         private static string movementType = "С сохранением";
+        private static int startingOffsetX = 15;
+        private static int startingOffsetY = 15;
         private RectangleF drawRect;
         private StringFormat sf;
         private Graphics g;
@@ -25,10 +28,9 @@ namespace Lab3 {
         private eLineType lineType;
         private Timer moveTimer;
         private int interval = 50;
-        private static int startingOffset = 15;
-        private static int startingInterval = 50;
         private int offsetX = 15;
         private int offsetY = 15;
+        private int[] randX, randY;
 
         public MainForm() {
             sf = new StringFormat();
@@ -36,7 +38,7 @@ namespace Lab3 {
             moveTimer = new Timer();
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
-            this.drawPanel.Paint += MainFormPaint;
+            this.drawPanel.Paint += DrawPanelPaint;
             this.pointsButton.Click += PointsDrawClick;
             this.paramsButton.Click += ParamsClick;
             this.curveLineButton.Click += CurveLineDrawClick;
@@ -46,12 +48,17 @@ namespace Lab3 {
             this.fillPointsButton.Click += FillDrawClick;
             this.moveButton.Click += MoveClick;            
             this.exitButton.Click += ExitButton_Click;
-            this.drawPanel.MouseClick += OnFormClick;
+            this.drawPanel.MouseClick += DrawPanelClick;
+            this.drawPanel.MouseDown += DrawPanelMouseDown;
+            this.drawPanel.MouseMove += DrawPanelMouseMove;
+            this.drawPanel.MouseUp += DrawPanelMouseUp;
             FormClosing += MainFormClose;
             KeyPreview = true;
             KeyDown += new KeyEventHandler(MainFormKeyDown);
-        }                
-
+            moveTimer.Interval = interval;
+            moveTimer.Tick += TimerTickHandler;
+        }
+                
         public static Color PointColor {
             get { return pointColor; }
             set { pointColor = value; }
@@ -88,46 +95,73 @@ namespace Lab3 {
         }
         
         private void ParamsClick(object sender, EventArgs e) {
+            bDrag = false;
+            iPointToDrag = -1;
             moveTimer.Stop();
-            moving = false;
-            offsetX = startingOffset;
-            offsetY = startingOffset;
-            interval = startingInterval;
+            offsetX = startingOffsetX;
+            offsetY = startingOffsetY;
             var paramsForm = new ParamsForm();
             paramsForm.Show();            
         }
 
-        private void OnFormClick(object sender, MouseEventArgs e) {
-            if (bAddPoints) {
+        private void DrawPanelClick(object sender, MouseEventArgs e) {
+            if (bAddPoints && !bDrag) {
                 arPoints.Add(new Point(e.Location.X, e.Location.Y));
                 Refresh();
             }
         }
 
+        private void DrawPanelMouseUp(object sender, MouseEventArgs e) {
+            bDrag = false;
+            iPointToDrag = -1;
+        }
+
+        private void DrawPanelMouseMove(object sender, MouseEventArgs e) {
+            if (bDrag) {
+                arPoints[iPointToDrag] = new Point(e.Location.X, e.Location.Y);
+                Refresh();
+            }
+        }
+
+        private void DrawPanelMouseDown(object sender, MouseEventArgs e) {
+            if (arPoints.Count > 0) {
+                for (int i = 0; i < arPoints.Count; i++) {
+                if (arPoints[i].X <= (e.Location.X + pointSize) && arPoints[i].X >= (e.Location.X - pointSize) && arPoints[i].Y <= (e.Location.Y + pointSize) && arPoints[i].Y >= (e.Location.Y - pointSize))
+                    this.iPointToDrag = i;
+                }
+            
+                if (this.iPointToDrag >= 0)
+                    bDrag = true;
+            }
+        }
+
         private void MoveClick(object sender, EventArgs e) {
-            Console.WriteLine("x=" + offsetX + ", y=" + offsetY + ", interval=" + interval);
             bAddPoints = false;
             if (arPoints.Count == 0) {
                 ShowAlert("Сначала добавьте точек!");
                 return;
             }
-            if (!moving) {
-                moveTimer.Interval = interval;
-                moveTimer.Tick += TimerTickHandler;
-                moveTimer.Start();
-            }
+            if (movementType.Equals("Случайный")) {
+                randX = new int[arPoints.Count];
+                randY = new int[arPoints.Count];
+                for (int i=0; i < arPoints.Count; i++) {
+                    randX[i] = rnd.Next(-pointSize * 2, pointSize * 2);
+                    randY[i] = rnd.Next(-pointSize * 2, pointSize * 2);
+                }
+            }                          
+            moveTimer.Start();            
         }
 
         private void ChangeCoordinates(int offsetx, int offsety) {            
-            for (int i = 0; i < arPoints.Count; i++) {                
+            for (int i = 0; i < arPoints.Count; i++) {
                 arPoints[i] = new Point(arPoints[i].X + offsetx, arPoints[i].Y + offsety);
-                if (arPoints[i].X > this.drawPanel.Size.Width - pointSize) {
+                if (arPoints[i].X > this.drawPanel.Size.Width - (pointSize + 5)) {
                     offsetX = -offsetx;
                 }
                 else if (arPoints[i].X < pointSize) {
                     offsetX = -offsetx;
                 }
-                if (arPoints[i].Y > this.drawPanel.Size.Height - pointSize) {
+                if (arPoints[i].Y > this.drawPanel.Size.Height - (pointSize + 5)) {
                     offsetY = -offsety;
                 }
                 else if (arPoints[i].Y < pointSize) {
@@ -138,11 +172,27 @@ namespace Lab3 {
         
 
         private void TimerTickHandler(object sender, EventArgs e) {
-            moving = true;
+            bMove = true;
             if (movementType.Equals("С сохранением"))
                 ChangeCoordinates(offsetX, offsetY);
-            else
-                ChangeCoordinates(rnd.Next(pointSize, this.drawPanel.Width), rnd.Next(pointSize, this.drawPanel.Height));            
+            else {
+                for (int i = 0; i < arPoints.Count; i++) {
+                    arPoints[i] = new Point(arPoints[i].X + randX[i], arPoints[i].Y + randY[i]);
+                    if (arPoints[i].X > this.drawPanel.Size.Width - (pointSize + 5)) {
+                        randX[i] = -randX[i];
+                    }
+                    else if (arPoints[i].X < pointSize) {
+                        randX[i] = -randX[i];
+                    }
+                    if (arPoints[i].Y > this.drawPanel.Size.Height - (pointSize + 5)) {
+                        randY[i] = -randY[i];
+                    }
+                    else if (arPoints[i].Y < pointSize) {
+                        randY[i] = -randY[i];
+                    }
+                }
+            }
+                
             Refresh();
         }
 
@@ -150,7 +200,7 @@ namespace Lab3 {
             g.DrawString(text, this.Font, Brushes.Black, drawRect, sf);
         }
 
-        private void MainFormPaint(object sender, PaintEventArgs e) {
+        private void DrawPanelPaint(object sender, PaintEventArgs e) {
             g = e.Graphics;
             Pen pointPen = new Pen(PointColor, PointSize);
             Pen linePen = new Pen(lineColor, lineSize);
@@ -198,11 +248,10 @@ namespace Lab3 {
         }
 
         private void PointsDrawClick(object sender, EventArgs e) {
-            moving = false;
+            bMove = false;
             moveTimer.Stop();
-            offsetX = startingOffset;
-            offsetY = startingOffset;
-            interval = startingInterval;
+            offsetX = startingOffsetX;
+            offsetY = startingOffsetY;
             bAddPoints = true;
         }
 
@@ -231,16 +280,70 @@ namespace Lab3 {
                 ShowAlert("Форма чиста");
                 return;
             }
-            moving = false;
-            moveTimer.Stop();            
-            if (ShowConfirmation("Вы уверены что хотите очистить форму?", "Очистить") == DialogResult.Yes) {
-                offsetX = startingOffset;
-                offsetY = startingOffset;
-                interval = startingInterval;
+            bMove = false;
+            moveTimer.Stop();
+            offsetX = startingOffsetX;
+            offsetY = startingOffsetY;
+            if (ShowConfirmation("Вы уверены что хотите очистить форму?", "Очистить") == DialogResult.Yes) {                
                 lineType = eLineType.None;
                 bAddPoints = false;
                 arPoints.Clear();
                 Refresh();
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+            switch (keyData) {
+                case Keys.Up:
+                    if (!bMove) {
+                        ChangeCoordinates(0, -15);
+                        Refresh();
+                    }
+                    else {
+                        if (offsetX >= 0)
+                            offsetX += 10;
+                        else
+                            offsetX -= 10;
+                    }
+                    return true;
+                case Keys.Down:
+                    if (!bMove) {
+                        ChangeCoordinates(0, 15);
+                        Refresh();
+                    }
+                    else {
+                        if (offsetX >= 0)
+                            offsetX += 10;
+                        else
+                            offsetX -= 10;
+                    }
+                    return true;
+                case Keys.Right:
+                    if (!bMove) {
+                        ChangeCoordinates(15, 0);
+                        Refresh();
+                    }
+                    else {
+                        if (offsetY >= 0)
+                            offsetY += 10;
+                        else
+                            offsetY -= 10;
+                    }
+                    return true;
+                case Keys.Left:
+                    if (!bMove) {
+                        ChangeCoordinates(-15, 0);
+                        Refresh();
+                    }
+                    else {
+                        if (offsetY >= 0)
+                            offsetY += 10;
+                        else
+                            offsetY -= 10;
+                    }
+                    return true;
+                default:
+                    return base.ProcessCmdKey(ref msg, keyData);
             }
         }
 
@@ -250,19 +353,38 @@ namespace Lab3 {
                     ClearFormClick(sender, e);
                     break;
                 case (Keys.Space):
-                    MoveClick(sender, e);
+                    if (!bMove)
+                        MoveClick(sender, e);
+                    else {
+                        bMove = false;
+                        moveTimer.Stop();
+                    }
+                        
                     break;
-                case (Keys.A):
-                    this.offsetX -= 10;
-                    this.offsetY -= 10;
+                case (Keys.Add):
+                    if (offsetX >= 0)
+                        this.offsetX += 10;
+                    else
+                        this.offsetX -= 10;
+                    if (offsetY >= 0)
+                        this.offsetY += 10;
+                    else
+                        this.offsetY -= 10;
                     break;
-                case (Keys.S):
-                    this.offsetX += 10;
-                    this.offsetY += 10;
+                case (Keys.Subtract):
+                    if (offsetX > 0)
+                        this.offsetX -= 10;
+                    else
+                        this.offsetX += 10;
+                    if (offsetY > 0)
+                        this.offsetY -= 10;
+                    else
+                        this.offsetY += 10;
                     break;
                 default:
                     break;
             }
+            e.Handled = true;
         }
 
         public static DialogResult ShowConfirmation(string text, string caption) {
