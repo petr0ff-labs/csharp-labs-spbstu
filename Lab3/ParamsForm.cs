@@ -42,7 +42,7 @@ namespace Lab3 {
 
         private void SaveClick(object sender, EventArgs e) {
             pointColorSelected = (this.comboBox1.SelectedItem == null) ? "Синий" : this.comboBox1.SelectedItem.ToString();
-            pointSizeSelected = (this.comboBox2.SelectedItem == null) ? "3" : this.comboBox2.SelectedItem.ToString();
+            pointSizeSelected = (this.comboBox2.SelectedItem == null) ? "5" : this.comboBox2.SelectedItem.ToString();
             lineColorSelected = (this.comboBox3.SelectedItem == null) ? "Чёрный" : this.comboBox3.SelectedItem.ToString();
             lineSizeSelected = (this.comboBox4.SelectedItem == null) ? "1" : this.comboBox4.SelectedItem.ToString();
             movementSelected = (this.comboBox5.SelectedItem == null) ? "С сохранением" : this.comboBox5.SelectedItem.ToString();

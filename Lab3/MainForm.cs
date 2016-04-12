@@ -27,8 +27,6 @@ namespace Lab3 {
         private int interval = 50;
         private int offsetX = 15;
         private int offsetY = 15;
-        private int[] randX;
-        private int[] randY;
 
         public MainForm() {
             sf = new StringFormat();
@@ -129,9 +127,29 @@ namespace Lab3 {
             }
         }
 
-        private void TimerTickHandler(object sender, EventArgs e) {            
+        private void RandomMovement(int offsetx, int offsety) {
+            for (int i = 0; i < arPoints.Count; i++) {
+                arPoints[i] = new Point(arPoints[i].X + offsetx, arPoints[i].Y + offsety);
+                if (arPoints[i].X > this.drawPanel.Size.Width - pointSize) {
+                    offsetX = -offsetx;
+                }
+                else if (arPoints[i].X < pointSize) {
+                    offsetX = -offsetx;
+                }
+                if (arPoints[i].Y > this.drawPanel.Size.Height - pointSize) {
+                    offsetY = -offsety;
+                }
+                else if (arPoints[i].Y < pointSize) {
+                    offsetY = -offsety;
+                }
+            }
+        }
+
+        private void TimerTickHandler(object sender, EventArgs e) {
             if (movementType.Equals("С сохранением"))
                 ChangeCoordinates(offsetX, offsetY);
+            else
+                RandomMovement(rnd.Next(pointSize, this.drawPanel.Height), rnd.Next(pointSize, this.drawPanel.Height));
             Refresh();
         }
 
