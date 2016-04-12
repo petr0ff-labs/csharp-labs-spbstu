@@ -12,7 +12,7 @@ namespace Lab3 {
     public partial class MainForm : Form {
         private Random rnd;
         private List<Point> arPoints = new List<Point>();        
-        private static bool bAddPoints, bExit;
+        private static bool bAddPoints, bExit, moving;
         private static int pointSize = 5;
         private static Color pointColor = Color.Blue;
         private static int lineSize = 1;
@@ -25,6 +25,8 @@ namespace Lab3 {
         private eLineType lineType;
         private Timer moveTimer;
         private int interval = 50;
+        private static int startingOffset = 15;
+        private static int startingInterval = 50;
         private int offsetX = 15;
         private int offsetY = 15;
 
@@ -87,6 +89,10 @@ namespace Lab3 {
         
         private void ParamsClick(object sender, EventArgs e) {
             moveTimer.Stop();
+            moving = false;
+            offsetX = startingOffset;
+            offsetY = startingOffset;
+            interval = startingInterval;
             var paramsForm = new ParamsForm();
             paramsForm.Show();            
         }
@@ -103,10 +109,12 @@ namespace Lab3 {
             if (arPoints.Count == 0) {
                 ShowAlert("Сначала добавьте точек!");
                 return;
-            }                   
-            moveTimer.Interval = interval;
-            moveTimer.Tick += TimerTickHandler;
-            moveTimer.Start();            
+            }
+            if (!moving) {
+                moveTimer.Interval = interval;
+                moveTimer.Tick += TimerTickHandler;
+                moveTimer.Start();
+            }
         }
 
         private void ChangeCoordinates(int offsetx, int offsety) {            
@@ -131,25 +139,26 @@ namespace Lab3 {
             for (int i = 0; i < arPoints.Count; i++) {
                 arPoints[i] = new Point(arPoints[i].X + offsetx, arPoints[i].Y + offsety);
                 if (arPoints[i].X > this.drawPanel.Size.Width - pointSize) {
-                    offsetX = -offsetx;
+                    offsetx = -offsetx;
                 }
                 else if (arPoints[i].X < pointSize) {
-                    offsetX = -offsetx;
+                    offsetx = -offsetx;
                 }
                 if (arPoints[i].Y > this.drawPanel.Size.Height - pointSize) {
-                    offsetY = -offsety;
+                    offsety = -offsety;
                 }
                 else if (arPoints[i].Y < pointSize) {
-                    offsetY = -offsety;
+                    offsety = -offsety;
                 }
             }
         }
 
         private void TimerTickHandler(object sender, EventArgs e) {
+            moving = true;
             if (movementType.Equals("С сохранением"))
                 ChangeCoordinates(offsetX, offsetY);
             else
-                RandomMovement(rnd.Next(pointSize, this.drawPanel.Height), rnd.Next(pointSize, this.drawPanel.Height));
+                RandomMovement(rnd.Next(pointSize, this.drawPanel.Width), rnd.Next(pointSize, this.drawPanel.Height));
             Refresh();
         }
 
@@ -205,7 +214,11 @@ namespace Lab3 {
         }
 
         private void PointsDrawClick(object sender, EventArgs e) {
+            moving = false;
             moveTimer.Stop();
+            offsetX = startingOffset;
+            offsetY = startingOffset;
+            interval = startingInterval;
             bAddPoints = true;
         }
 
@@ -234,13 +247,15 @@ namespace Lab3 {
                 ShowAlert("Форма чиста");
                 return;
             }
-            moveTimer.Stop();
+            moving = false;
+            moveTimer.Stop();            
             if (ShowConfirmation("Вы уверены что хотите очистить форму?", "Очистить") == DialogResult.Yes) {
+                offsetX = startingOffset;
+                offsetY = startingOffset;
+                interval = startingInterval;
                 lineType = eLineType.None;
                 bAddPoints = false;
                 arPoints.Clear();
-                offsetX = 15;
-                offsetY = 15;
                 Refresh();
             }
         }
