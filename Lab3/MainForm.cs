@@ -105,6 +105,7 @@ namespace Lab3 {
         }
 
         private void MoveClick(object sender, EventArgs e) {
+            Console.WriteLine("x=" + offsetX + ", y=" + offsetY + ", interval=" + interval);
             bAddPoints = false;
             if (arPoints.Count == 0) {
                 ShowAlert("Сначала добавьте точек!");
@@ -134,31 +135,14 @@ namespace Lab3 {
                 }
             }
         }
-
-        private void RandomMovement(int offsetx, int offsety) {
-            for (int i = 0; i < arPoints.Count; i++) {
-                arPoints[i] = new Point(arPoints[i].X + offsetx, arPoints[i].Y + offsety);
-                if (arPoints[i].X > this.drawPanel.Size.Width - pointSize) {
-                    offsetx = -offsetx;
-                }
-                else if (arPoints[i].X < pointSize) {
-                    offsetx = -offsetx;
-                }
-                if (arPoints[i].Y > this.drawPanel.Size.Height - pointSize) {
-                    offsety = -offsety;
-                }
-                else if (arPoints[i].Y < pointSize) {
-                    offsety = -offsety;
-                }
-            }
-        }
+        
 
         private void TimerTickHandler(object sender, EventArgs e) {
             moving = true;
             if (movementType.Equals("С сохранением"))
                 ChangeCoordinates(offsetX, offsetY);
             else
-                RandomMovement(rnd.Next(pointSize, this.drawPanel.Width), rnd.Next(pointSize, this.drawPanel.Height));
+                ChangeCoordinates(rnd.Next(pointSize, this.drawPanel.Width), rnd.Next(pointSize, this.drawPanel.Height));            
             Refresh();
         }
 
