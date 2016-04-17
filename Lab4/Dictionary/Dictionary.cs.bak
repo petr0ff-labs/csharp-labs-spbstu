@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab4.Dictionary {
+    abstract class Dictionary {
+        private Dictionary<Word, Word[]> dict;
+
+        public Dictionary(Dictionary<Word, Word[]> d) {
+            this.dict = d;
+        }
+
+        public Dictionary(String path) {
+        }
+
+        public Dictionary<Word, Word[]> Dict {
+            get { return this.dict; }
+            set { this.dict = value; }
+        }
+
+        public Word[] this[Word w] {
+            get { return this.dict[w]; }
+            set { this.dict[w] = value; }
+        }
+        
+        abstract public void addToDict(Word w, Word[] v);
+
+        abstract public void removeFromDict(Word w);
+
+        protected void printDict() {
+            foreach (var w in this.Dict.Keys) {
+                Console.WriteLine("Key=" + w.Value + ", Val=" + getValues(this.Dict[w]));
+            }
+        }
+
+        protected string getValues(Word[] w) {
+            string res = "";
+            foreach (var v in w)
+                res += v.Value + "\n";
+            return res;
+        }
+
+    }
+}
