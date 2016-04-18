@@ -11,9 +11,9 @@ namespace Lab4.Dictionary {
 
         public RusEngDictionary() {
             dict = new Dictionary<RussianWord, IEnumerable<EnglishWord>>();
-            addToDict(new RussianWord("Кошка"), new EnglishWord("Cat"));
-            addToDict(new RussianWord("Собака"), new EnglishWord("Dog"));
-            addToDict(new RussianWord("Сумка"), new List<EnglishWord>() { new EnglishWord("Bag") });
+            addToDict(new RussianWord("Кошка", "noun"), new EnglishWord("Cat"));
+            addToDict(new RussianWord("Собака", "noun"), new EnglishWord("Dog"));
+            addToDict(new RussianWord("Сумка", "noun"), new List<EnglishWord>() { new EnglishWord("Bag") });
         }
 
         private RusEngDictionary(Dictionary<RussianWord, IEnumerable<EnglishWord>> d) {
@@ -30,8 +30,8 @@ namespace Lab4.Dictionary {
                 string engWord = cells[1].Value;
                 string wordType = cells[2].Value;
                 try {
-                    if (engWord.Contains(',')) {
-                        List<String> engWords = engWord.Split(',').ToList();
+                    if (engWord.Contains(';')) {
+                        List<String> engWords = engWord.Split(';').ToList();
                         List<EnglishWord> engList = new List<EnglishWord>();
                         foreach (var r in engWords)
                             engList.Add(new EnglishWord(r));
@@ -50,7 +50,7 @@ namespace Lab4.Dictionary {
             sr.Close();*/
         }
 
-        private Dictionary<RussianWord, IEnumerable<EnglishWord>> Dict {
+        public Dictionary<RussianWord, IEnumerable<EnglishWord>> Dict {
             get { return this.dict; }
             set { this.dict = value; }
         }
@@ -62,7 +62,7 @@ namespace Lab4.Dictionary {
 
         public override Word[] Keys {
             get { return this.dict.Keys.ToArray(); }
-        }
+        }        
 
         public override void addToDict(Word w, IEnumerable<Word> v) {
             this.Dict.Add((RussianWord) w, (List<EnglishWord>) v);

@@ -8,7 +8,13 @@ namespace Lab4.Dictionary {
     abstract class ADictionary {
         private Dictionary<Word, IEnumerable<Word>> dict;
 
+        public enum WordType {Noun, Adjective, Adverb, Verb, Expression};
+
         public ADictionary() {}
+
+        /*public abstract Dictionary<Word, IEnumerable<Word>> Dict {
+            get;
+        }*/
 
         abstract public IEnumerable<Word> this[Word w] { get; set; }
 

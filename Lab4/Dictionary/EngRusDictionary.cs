@@ -14,9 +14,9 @@ namespace Lab4.Dictionary {
 
         public EngRusDictionary() {
             this.dict = new Dictionary<EnglishWord, IEnumerable<RussianWord>>();
-            addToDict(new EnglishWord("Cat"), new RussianWord("Кошка"));
-            addToDict(new EnglishWord("Dog"), new RussianWord("Собака"));
-            addToDict(new EnglishWord("Bag"), new List<RussianWord>() { new RussianWord("Сумка"), new RussianWord("Пакет") });
+            addToDict(new EnglishWord("Cat", "noun"), new RussianWord("Кошка"));
+            addToDict(new EnglishWord("Dog", "noun"), new RussianWord("Собака"));
+            addToDict(new EnglishWord("Bag", "noun"), new List<RussianWord>() { new RussianWord("Сумка"), new RussianWord("Пакет") });
         }
 
         public EngRusDictionary(string path) {
@@ -29,8 +29,8 @@ namespace Lab4.Dictionary {
                 string rusWord = cells[1].Value;
                 string wordType = cells[2].Value;
                 try {
-                    if (rusWord.Contains(',')) {
-                        List <String> rusWords = rusWord.Split(',').ToList();
+                    if (rusWord.Contains(';')) {
+                        List <String> rusWords = rusWord.Split(';').ToList();
                         List<RussianWord> rusList = new List<RussianWord>();
                         foreach (var r in rusWords)
                             rusList.Add(new RussianWord(r));
@@ -53,7 +53,7 @@ namespace Lab4.Dictionary {
             this.dict = d;
         }
 
-        private Dictionary<EnglishWord, IEnumerable<RussianWord>> Dict {
+        public Dictionary<EnglishWord, IEnumerable<RussianWord>> Dict {
             get { return this.dict; }
             set { this.dict = value; }
         }
