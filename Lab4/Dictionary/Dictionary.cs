@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Lab4.Dictionary {
-    abstract class ADictionary {
+    abstract public class ADictionary {
         private Dictionary<Word, IEnumerable<Word>> dict;
 
         public enum WordType {Noun, Adjective, Adverb, Verb, Expression};
@@ -17,7 +17,7 @@ namespace Lab4.Dictionary {
         }*/
 
         abstract public IEnumerable<Word> this[Word w] { get; set; }
-
+                
         abstract public Word[] Keys { get; }
 
         abstract public void addToDict(Word w, IEnumerable<Word> v);
@@ -27,6 +27,14 @@ namespace Lab4.Dictionary {
         abstract public void removeFromDict(Word w);
 
         abstract public string printDict();
+
+        public Word getWord(string s) {
+            foreach (var w in Keys) {
+                if (w.Value.Equals(s))
+                    return w;
+            }
+            return null;
+        }
 
         public string getValues(IEnumerable<Word> w) {
             string res = "";

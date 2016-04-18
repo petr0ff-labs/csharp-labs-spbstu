@@ -66,15 +66,18 @@ namespace Lab4.Dictionary {
         public override Word[] Keys {
             get { return this.dict.Keys.ToArray(); }
         }
-
+        
         public override void addToDict(Word w, IEnumerable<Word> v) {
-            this.Dict.Add((EnglishWord) w, (List<RussianWord>) v);
+            if (!this.Dict.ContainsKey((EnglishWord)w))
+                this.Dict.Add((EnglishWord) w, (List<RussianWord>) v);
         }
 
         public override void addToDict(Word w, Word v) {
-            List<RussianWord> l = new List<RussianWord>();
-            l.Add((RussianWord)v);
-            this.Dict.Add((EnglishWord)w, l);
+            if (!this.Dict.ContainsKey((EnglishWord)w)) {
+                List<RussianWord> l = new List<RussianWord>();
+                l.Add((RussianWord)v);
+                this.Dict.Add((EnglishWord)w, l);
+            }
         }
 
         public override void removeFromDict(Word w) {
@@ -87,6 +90,6 @@ namespace Lab4.Dictionary {
                 s += "Key=" + w.Value + ", Val=" + getValues(this.Dict[w]) + "\n";
             }
             return s;
-        }
+        }        
     }
 }

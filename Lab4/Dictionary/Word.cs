@@ -5,17 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Lab4.Dictionary {
-    abstract class Word {
+    abstract public class Word {
         protected string m_value;
         protected string m_type;
 
         public Word(string w, string t) {
-            this.m_value = w;
+            this.m_value = w.Trim();
             this.m_type = t;
         }
 
         public string Value {
-            get { return this.m_value; }
+            get { return char.ToUpper(this.m_value[0]) + this.m_value.Substring(1); }
             set { this.m_value = value; }
         }
 

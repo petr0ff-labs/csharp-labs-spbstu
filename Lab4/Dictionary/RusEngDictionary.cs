@@ -65,13 +65,16 @@ namespace Lab4.Dictionary {
         }        
 
         public override void addToDict(Word w, IEnumerable<Word> v) {
-            this.Dict.Add((RussianWord) w, (List<EnglishWord>) v);
+            if (!this.Dict.ContainsKey((RussianWord)w))
+                this.Dict.Add((RussianWord) w, (List<EnglishWord>) v);
         }
 
         public override void addToDict(Word w, Word v) {
-            List<EnglishWord> l = new List<EnglishWord>();
-            l.Add((EnglishWord)v);
-            this.Dict.Add((RussianWord)w, l);
+            if (!this.Dict.ContainsKey((RussianWord)w)) {
+                List<EnglishWord> l = new List<EnglishWord>();
+                l.Add((EnglishWord)v);
+                this.Dict.Add((RussianWord)w, l);
+            }
         }
 
         public override void removeFromDict(Word w) {

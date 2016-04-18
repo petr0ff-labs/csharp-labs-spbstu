@@ -65,6 +65,7 @@
     <Compile Include="Dictionary\RussianWord.cs" />
     <Compile Include="Dictionary\EnglishWord.cs" />
     <Compile Include="Dictionary\Word.cs" />
+    <Compile Include="Dictionary\WordType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddNodeForm.resx">

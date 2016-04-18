@@ -30,6 +30,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.addNodeButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
@@ -100,11 +101,22 @@
             this.cancelButton.Text = "Закрыть";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(32, 97);
+            this.label4.MaximumSize = new System.Drawing.Size(100, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 120);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Если у слова несколько значений, добавляйте их через точку с запятой.";
+            // 
             // AddNodeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 356);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addNodeButton);
             this.Controls.Add(this.label3);
@@ -130,5 +142,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button addNodeButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label label4;
     }
 }

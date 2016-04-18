@@ -37,7 +37,9 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteCardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteCardsList = new System.Windows.Forms.ToolStripComboBox();
             this.viewCardsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewCardsList = new System.Windows.Forms.ToolStripComboBox();
             this.statsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.leftPanelHeader = new System.Windows.Forms.Label();
             this.rightPanelHeader = new System.Windows.Forms.Label();
@@ -48,6 +50,7 @@
             // leftPanel
             // 
             this.leftPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.leftPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.leftPanel.Location = new System.Drawing.Point(11, 79);
             this.leftPanel.Name = "leftPanel";
             this.leftPanel.Size = new System.Drawing.Size(291, 366);
@@ -56,6 +59,7 @@
             // rightPanel
             // 
             this.rightPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rightPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rightPanel.Location = new System.Drawing.Point(501, 79);
             this.rightPanel.Name = "rightPanel";
             this.rightPanel.Size = new System.Drawing.Size(294, 366);
@@ -159,15 +163,29 @@
             // 
             // deleteCardToolStripMenuItem
             // 
+            this.deleteCardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteCardsList});
             this.deleteCardToolStripMenuItem.Name = "deleteCardToolStripMenuItem";
             this.deleteCardToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
             this.deleteCardToolStripMenuItem.Text = "Удалить карточку";
             // 
+            // deleteCardsList
+            // 
+            this.deleteCardsList.Name = "deleteCardsList";
+            this.deleteCardsList.Size = new System.Drawing.Size(121, 28);
+            // 
             // viewCardsToolStripMenuItem
             // 
+            this.viewCardsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewCardsList});
             this.viewCardsToolStripMenuItem.Name = "viewCardsToolStripMenuItem";
-            this.viewCardsToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
-            this.viewCardsToolStripMenuItem.Text = "Просмотреть карточки";
+            this.viewCardsToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.viewCardsToolStripMenuItem.Text = "Посмотреть карточку";
+            // 
+            // viewCardsList
+            // 
+            this.viewCardsList.Name = "viewCardsList";
+            this.viewCardsList.Size = new System.Drawing.Size(121, 28);
             // 
             // statsToolStripMenuItem
             // 
@@ -202,7 +220,7 @@
             this.directionButton.Name = "directionButton";
             this.directionButton.Size = new System.Drawing.Size(186, 55);
             this.directionButton.TabIndex = 8;
-            this.directionButton.Text = "<Направление>";
+            this.directionButton.Text = "Сменить словарь";
             this.directionButton.UseVisualStyleBackColor = true;
             // 
             // DictionaryForm
@@ -252,6 +270,8 @@
         private System.Windows.Forms.Label leftPanelHeader;
         private System.Windows.Forms.Label rightPanelHeader;
         private System.Windows.Forms.Button directionButton;
+        private System.Windows.Forms.ToolStripComboBox deleteCardsList;
+        private System.Windows.Forms.ToolStripComboBox viewCardsList;
     }
 }
 
