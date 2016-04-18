@@ -1,0 +1,422 @@
+<Table>
+   <Row>
+    <Cell><Data>говорить</Data></Cell>
+    <Cell><Data>to say, to tell, to speak</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>год</Data></Cell>
+    <Cell><Data>year</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>знать</Data></Cell>
+    <Cell><Data>to know, be aware</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>мой</Data></Cell>
+    <Cell><Data>my, mine</Data></Cell>
+    <Cell><Data>pronoun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>до</Data></Cell>
+    <Cell><Data>to, up to, about, before</Data></Cell>
+    <Cell><Data>preposition</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>или</Data></Cell>
+    <Cell><Data>or</Data></Cell>
+    <Cell><Data>conjunction</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>если</Data></Cell>
+    <Cell><Data>if</Data></Cell>
+    <Cell><Data>conjunction</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>время</Data></Cell>
+    <Cell><Data>time, season</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>рука</Data></Cell>
+    <Cell><Data>hand, arm</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>нет</Data></Cell>
+    <Cell><Data>no, not, but</Data></Cell>
+    <Cell><Data>negation</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>самый</Data></Cell>
+    <Cell><Data>most, the very, the same</Data></Cell>
+    <Cell><Data>pronoun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>ни</Data></Cell>
+    <Cell><Data>not a, not, neither… nor</Data></Cell>
+    <Cell><Data>conj, particle</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>стать</Data></Cell>
+    <Cell><Data>to become, begin, come</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>большой</Data></Cell>
+    <Cell><Data>big, large, important</Data></Cell>
+    <Cell><Data>adjective</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>даже</Data></Cell>
+    <Cell><Data>even</Data></Cell>
+    <Cell><Data>particle</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>другой</Data></Cell>
+    <Cell><Data>other, another, different</Data></Cell>
+    <Cell><Data>pronoun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>наш</Data></Cell>
+    <Cell><Data>our, ours</Data></Cell>
+    <Cell><Data>pronoun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>свой</Data></Cell>
+    <Cell><Data>my, our, your</Data></Cell>
+    <Cell><Data>pronoun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>ну</Data></Cell>
+    <Cell><Data>now, right, well, come on</Data></Cell>
+    <Cell><Data>interj, particle</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>под</Data></Cell>
+    <Cell><Data>under, for, towards, to</Data></Cell>
+    <Cell><Data>preposition</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>где</Data></Cell>
+    <Cell><Data>where</Data></Cell>
+    <Cell><Data>adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>дело</Data></Cell>
+    <Cell><Data>business, affair, matter</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>есть</Data></Cell>
+    <Cell><Data>to eat, to be</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>сам</Data></Cell>
+    <Cell><Data>myself, yourself</Data></Cell>
+    <Cell><Data>pronoun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>раз</Data></Cell>
+    <Cell><Data>time, once, since</Data></Cell>
+    <Cell><Data>noun, adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>чтобы</Data></Cell>
+    <Cell><Data>that, in order that</Data></Cell>
+    <Cell><Data>conjunction, particle</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>два</Data></Cell>
+    <Cell><Data>two</Data></Cell>
+    <Cell><Data>cardinal number</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>там</Data></Cell>
+    <Cell><Data>there, then</Data></Cell>
+    <Cell><Data>adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>чем</Data></Cell>
+    <Cell><Data>than, instead of</Data></Cell>
+    <Cell><Data>conjunction, particle</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>глаз</Data></Cell>
+    <Cell><Data>eye, sight</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>жизнь</Data></Cell>
+    <Cell><Data>life</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>первый</Data></Cell>
+    <Cell><Data>first, front, former</Data></Cell>
+    <Cell><Data>adjective, number</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>день</Data></Cell>
+    <Cell><Data>day</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>тут</Data></Cell>
+    <Cell><Data>here, now, then</Data></Cell>
+    <Cell><Data>adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>во</Data></Cell>
+    <Cell><Data>in, at, super, exactly</Data></Cell>
+    <Cell><Data>preposition, particle</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>ничто</Data></Cell>
+    <Cell><Data>nothing</Data></Cell>
+    <Cell><Data>pronoun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>потом</Data></Cell>
+    <Cell><Data>afterwards, then</Data></Cell>
+    <Cell><Data>adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>очень</Data></Cell>
+    <Cell><Data>very</Data></Cell>
+    <Cell><Data>adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>со</Data></Cell>
+    <Cell><Data>with</Data></Cell>
+    <Cell><Data>preposition</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>хотеть</Data></Cell>
+    <Cell><Data>to want, like</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>ли</Data></Cell>
+    <Cell><Data>whether, if</Data></Cell>
+    <Cell><Data>conj, particle</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>при</Data></Cell>
+    <Cell><Data>attached to, in the presence of, by, about, masterrussian, dot com</Data></Cell>
+    <Cell><Data>preposition</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>голова</Data></Cell>
+    <Cell><Data>head, mind, brains</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>надо</Data></Cell>
+    <Cell><Data>over, above, ought to</Data></Cell>
+    <Cell><Data>prep, verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>без</Data></Cell>
+    <Cell><Data>without</Data></Cell>
+    <Cell><Data>preposition</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>видеть</Data></Cell>
+    <Cell><Data>to see</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>идти</Data></Cell>
+    <Cell><Data>to go, come</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>теперь</Data></Cell>
+    <Cell><Data>now, nowadays</Data></Cell>
+    <Cell><Data>adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>тоже</Data></Cell>
+    <Cell><Data>also, as well, too</Data></Cell>
+    <Cell><Data>adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>стоять</Data></Cell>
+    <Cell><Data>to stand, be, stand up</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>друг</Data></Cell>
+    <Cell><Data>friend</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>дом</Data></Cell>
+    <Cell><Data>house, home</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>сейчас</Data></Cell>
+    <Cell><Data>now, presently, soon</Data></Cell>
+    <Cell><Data>adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>можно</Data></Cell>
+    <Cell><Data>one can</Data></Cell>
+    <Cell><Data>predicate</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>после</Data></Cell>
+    <Cell><Data>after, afterwards</Data></Cell>
+    <Cell><Data>preposition</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>слово</Data></Cell>
+    <Cell><Data>word</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>здесь</Data></Cell>
+    <Cell><Data>here</Data></Cell>
+    <Cell><Data>adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>думать</Data></Cell>
+    <Cell><Data>to think, believe</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>место</Data></Cell>
+    <Cell><Data>place, seat</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>спросить</Data></Cell>
+    <Cell><Data>to ask</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>через</Data></Cell>
+    <Cell><Data>through, across</Data></Cell>
+    <Cell><Data>preposition</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>лицо</Data></Cell>
+    <Cell><Data>face, person</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>что</Data></Cell>
+    <Cell><Data>what, which, that</Data></Cell>
+    <Cell><Data>pronoun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>тогда</Data></Cell>
+    <Cell><Data>then</Data></Cell>
+    <Cell><Data>adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>ведь</Data></Cell>
+    <Cell><Data>you see, you know</Data></Cell>
+    <Cell><Data>conj</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>хороший</Data></Cell>
+    <Cell><Data>good, nice (see #152)</Data></Cell>
+    <Cell><Data>adjective</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>каждый</Data></Cell>
+    <Cell><Data>each, every</Data></Cell>
+    <Cell><Data>pronoun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>новый</Data></Cell>
+    <Cell><Data>new, modern</Data></Cell>
+    <Cell><Data>adjective</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>жить</Data></Cell>
+    <Cell><Data>to live</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>должный</Data></Cell>
+    <Cell><Data>due, proper</Data></Cell>
+    <Cell><Data>adjective</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>смотреть</Data></Cell>
+    <Cell><Data>to look, watch</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>почему</Data></Cell>
+    <Cell><Data>why</Data></Cell>
+    <Cell><Data>adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>потому</Data></Cell>
+    <Cell><Data>that's why</Data></Cell>
+    <Cell><Data>adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>сторона</Data></Cell>
+    <Cell><Data>side, party</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>просто</Data></Cell>
+    <Cell><Data>simply</Data></Cell>
+    <Cell><Data>adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>нога</Data></Cell>
+    <Cell><Data>foot, leg</Data></Cell>
+    <Cell><Data>noun</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>сидеть</Data></Cell>
+    <Cell><Data>to sit</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>понять</Data></Cell>
+    <Cell><Data>to understand, realize</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>иметь</Data></Cell>
+    <Cell><Data>to have, own</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>конечный</Data></Cell>
+    <Cell><Data>final, last</Data></Cell>
+    <Cell><Data>adjective</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>делать</Data></Cell>
+    <Cell><Data>to do, make</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>вдруг</Data></Cell>
+    <Cell><Data>suddenly</Data></Cell>
+    <Cell><Data>adverb</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>над</Data></Cell>
+    <Cell><Data>above, over</Data></Cell>
+    <Cell><Data>preposition</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data>взять</Data></Cell>
+    <Cell><Data>to take</Data></Cell>
+    <Cell><Data>verb</Data></Cell>
+   </Row>
+  </Table>
