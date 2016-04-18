@@ -8,9 +8,13 @@ namespace Lab4.Dictionary {
     class EnglishWord : Word {
         private string transcription;
 
-        public EnglishWord(string w) : base(w) {
-            this.transcription = "/" + w + "/";
-        }        
+        public EnglishWord(string w, string t) : base(w, t) { }
+
+        public EnglishWord(string w) : this(w, "") { }
+
+        public EnglishWord(string w, string t, string tr) : this(w, t) {
+            this.transcription = tr;
+        }
 
         public string Transcription {
             get { return this.transcription; }

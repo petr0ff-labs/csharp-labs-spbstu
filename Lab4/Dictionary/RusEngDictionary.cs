@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Lab4.Dictionary {
     class RusEngDictionary : ADictionary {
@@ -17,6 +18,36 @@ namespace Lab4.Dictionary {
 
         private RusEngDictionary(Dictionary<RussianWord, IEnumerable<EnglishWord>> d) {
             this.dict = d;
+        }
+
+        public RusEngDictionary(string path) {
+            this.dict = new Dictionary<RussianWord, IEnumerable<EnglishWord>>();
+            XDocument database = XDocument.Load(path);
+            List<XElement> entries = database.Descendants("Row").ToList();
+            foreach (var e in entries) {
+                List<XElement> cells = e.Elements().ToList();
+                string rusWord = cells[0].Value;
+                string engWord = cells[1].Value;
+                string wordType = cells[2].Value;
+                try {
+                    if (engWord.Contains(',')) {
+                        List<String> engWords = engWord.Split(',').ToList();
+                        List<EnglishWord> engList = new List<EnglishWord>();
+                        foreach (var r in engWords)
+                            engList.Add(new EnglishWord(r));
+                        addToDict(new RussianWord(rusWord, wordType), engList);
+                    }
+                    else
+                        addToDict(new RussianWord(rusWord, wordType), new EnglishWord(engWord));
+                }
+                catch (Exception) { }
+            }
+
+            /*FileStream sr = new FileStream(path, FileMode.Open);
+            XmlReader xmlReader1 = XmlReader.Create(sr);
+            xmlReader1.MoveToContent();
+            Console.WriteLine(xmlReader1.ReadInnerXml());
+            sr.Close();*/
         }
 
         private Dictionary<RussianWord, IEnumerable<EnglishWord>> Dict {
@@ -53,18 +84,6 @@ namespace Lab4.Dictionary {
                 s += "Key=" + w.Value + ", Val=" + getValues(this.Dict[w]) + "\n";
             }
             return s;
-        }
-
-        public override string getValues(IEnumerable<Word> w) {
-            string res = "";
-            if (w.ToArray().Length == 1)
-                res = w.First().Value;
-            else {
-                foreach (var v in w)
-                    res += v.Value + "\n";
-                res = res.Remove(res.Length - 1);
-            }
-            return res;
         }
     }
 }

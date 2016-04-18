@@ -10,8 +10,6 @@ namespace Lab4.Dictionary {
 
         public ADictionary() {}
 
-        public ADictionary(String path) {}
-
         abstract public IEnumerable<Word> this[Word w] { get; set; }
 
         abstract public Word[] Keys { get; }
@@ -24,6 +22,16 @@ namespace Lab4.Dictionary {
 
         abstract public string printDict();
 
-        abstract public string getValues(IEnumerable<Word> w);
+        public string getValues(IEnumerable<Word> w) {
+            string res = "";
+            if (w.ToArray().Length == 1)
+                res = "- " + w.First().Value;
+            else {
+                foreach (var v in w)
+                    res += "- " + v.Value + "\n";
+                res = res.Remove(res.Length - 1);
+            }
+            return res;
+        }
     }
 }

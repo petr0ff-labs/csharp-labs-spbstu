@@ -27,8 +27,8 @@ namespace Lab4 {
             sf = new StringFormat();
             StartPosition = FormStartPosition.CenterScreen;
             curDict = Edictionary.EngRus;
-            er = new EngRusDictionary();
-            re = new RusEngDictionary();
+            er = new EngRusDictionary("C://Studies//engRusDict2.xml");
+            re = new RusEngDictionary("C://Studies//rusEngDict2.xml");
             curD = er;            
             f = new Font("HP Simplified", 16F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(204)));
             currentWord = 0;
@@ -117,7 +117,7 @@ namespace Lab4 {
         private void InitRect() {
             sf.LineAlignment = StringAlignment.Center;
             sf.Alignment = StringAlignment.Center;
-            float x = (this.leftPanel.Location.X / 2) - 50;
+            float x = this.leftPanel.Location.X / 2;
             float y = this.leftPanel.Location.Y / 2;
             float width = 200.0F;
             float height = 50.0F;
