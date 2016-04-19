@@ -106,11 +106,12 @@ namespace Lab4 {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "XML файлы|*.xml";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK) {
+                Console.WriteLine(CurrentDictionary.ToString() + ".xml");
                 Stream sr = new FileStream(CurrentDictionary.ToString() + ".xml", FileMode.Create);
-                XmlSerializer xmlSer = new XmlSerializer(typeof(item), new XmlRootAttribute() { ElementName = "Table" });
-                Console.WriteLine("Количество: " + curD.Keys.Length);
-                item i = new item(curD.Keys[0], curD[curD.Keys[0]]);
-                xmlSer.Serialize(sr, curD.Keys.Select(kv => new item() { word = kv.Key, value = kv.Value.ToList() }));
+                XmlSerializer xmlSer = new XmlSerializer(typeof(item));
+                Console.WriteLine(curD.Keys[0].GetType());
+                item i = new item() { word = curD.Keys[0], value = curD[curD.Keys[0]].ToList() };
+                xmlSer.Serialize(sr, i);
                 sr.Close();
             }
         }

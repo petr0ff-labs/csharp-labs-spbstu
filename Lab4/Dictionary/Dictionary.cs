@@ -53,10 +53,11 @@ namespace Lab4.Dictionary {
             return res;
         }
     }
+
     public class item {
         [XmlElement]
         public Word word;
         [XmlElement]
-        public List<Word> value;
+        public IEnumerable<Word> value;
     }
 }
