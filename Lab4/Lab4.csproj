@@ -58,6 +58,17 @@
     <Compile Include="DictionaryForm.Designer.cs">
       <DependentUpon>DictionaryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestStuff\Question.cs" />
+    <Compile Include="TestStuff\Test.cs" />
+    <EmbeddedResource Include="TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Dictionary\Dictionary.cs.bak" />
     <Compile Include="Dictionary\Dictionary.cs" />
     <Compile Include="Dictionary\RusEngDictionary.cs" />

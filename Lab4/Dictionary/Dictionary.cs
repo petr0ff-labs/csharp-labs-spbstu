@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Lab4.Dictionary {
     abstract public class ADictionary {
         private Dictionary<Word, IEnumerable<Word>> dict;
 
-        public enum WordType {Noun, Adjective, Adverb, Verb, Expression};
+        public enum WordType { Noun, Adjective, Adverb, Verb, Expression };
 
-        public ADictionary() {}
+        public ADictionary() { }
 
         /*public abstract Dictionary<Word, IEnumerable<Word>> Dict {
             get;
         }*/
 
         abstract public IEnumerable<Word> this[Word w] { get; set; }
-                
+
         abstract public Word[] Keys { get; }
+
+        public Dictionary<Word, IEnumerable<Word>> Dict {
+            get;
+        }
 
         abstract public void addToDict(Word w, IEnumerable<Word> v);
 
@@ -47,5 +52,11 @@ namespace Lab4.Dictionary {
             }
             return res;
         }
+    }
+    public class item {
+        [XmlElement]
+        public Word word;
+        [XmlElement]
+        public List<Word> value;
     }
 }

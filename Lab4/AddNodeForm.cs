@@ -19,23 +19,8 @@ namespace Lab4 {
             StartPosition = FormStartPosition.CenterScreen;
             this.addNodeButton.Click += AddNodeButton_Click;
             this.cancelButton.Click += CancelButton_Click;
-            //this.Load += AddNodeForm_Load;
             FormClosing += AddNodeForm_Close;
-        }
-
-        /*private void AddNodeForm_Load(object sender, EventArgs e) {
-            ToolTip toolTip1 = new ToolTip();
-            // Set up the delays for the ToolTip.
-            toolTip1.AutoPopDelay = 2000;
-            toolTip1.InitialDelay = 1000;
-            toolTip1.ReshowDelay = 500;
-            // Force the ToolTip text to be displayed whether or not the form is active.
-            toolTip1.ShowAlways = true;
-            // Set up the ToolTip text for the Button and Checkbox.
-            string txt = "Если у слова несколько значений, добавляйте их через точку с запятой";
-            toolTip1.SetToolTip(this.label2, txt);
-            toolTip1.SetToolTip(this.richTextBox1, txt);
-        }*/
+        }        
 
         private void AddNodeButton_Click(object sender, EventArgs e) {
             word = this.textBox1.Text;

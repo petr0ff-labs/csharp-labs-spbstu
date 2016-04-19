@@ -11,8 +11,9 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
-namespace Lab4 {    
+namespace Lab4 {
     public partial class DictionaryForm : Form {
         private bool bExit, bLeftShow, bRightShow;
         private RectangleF drawRect;
@@ -22,7 +23,7 @@ namespace Lab4 {
         private static ADictionary curD, er, re;
         private Font f;
         private Word leftWord;
-        private string rightString;        
+        private string rightString;
         private static Edictionary curDict;
         public enum Edictionary { EngRus, RusEng };
 
@@ -32,7 +33,7 @@ namespace Lab4 {
             curDict = Edictionary.EngRus;
             er = new EngRusDictionary();
             re = new RusEngDictionary();
-            curD = er;            
+            curD = er;
             f = new Font("HP Simplified", 12F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(204)));
             currentWord = 0;
             InitializeComponent();
@@ -50,7 +51,13 @@ namespace Lab4 {
             this.viewCardsList.SelectedIndexChanged += ViewCardsList_SelectedIndexChanged;
             this.deleteCardToolStripMenuItem.DropDownOpening += DeleteCardToolStripMenuItem_DropDownOpening;
             this.deleteCardsList.SelectedIndexChanged += DeleteCardsList_SelectedIndexChanged;
-            FormClosing += DictionaryForm_FormClosing;            
+            this.testButton.Click += TestButton_Click;
+            FormClosing += DictionaryForm_FormClosing;
+        }
+
+        private void TestButton_Click(object sender, EventArgs e) {
+            var testForm = new TestForm();
+            testForm.Show(this);
         }
 
         private void DeleteCardsList_SelectedIndexChanged(object sender, EventArgs e) {
@@ -92,11 +99,20 @@ namespace Lab4 {
                 this.viewCardsList.Text = "Выберите слово";
             this.viewCardsList.Items.Clear();
             foreach (var w in curD.Keys)
-                this.viewCardsList.Items.Add(w.Value);            
+                this.viewCardsList.Items.Add(w.Value);
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e) {
-            throw new NotImplementedException();
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "XML файлы|*.xml";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK) {
+                Stream sr = new FileStream(CurrentDictionary.ToString() + ".xml", FileMode.Create);
+                XmlSerializer xmlSer = new XmlSerializer(typeof(item), new XmlRootAttribute() { ElementName = "Table" });
+                Console.WriteLine("Количество: " + curD.Keys.Length);
+                item i = new item(curD.Keys[0], curD[curD.Keys[0]]);
+                xmlSer.Serialize(sr, curD.Keys.Select(kv => new item() { word = kv.Key, value = kv.Value.ToList() }));
+                sr.Close();
+            }
         }
 
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -109,17 +125,19 @@ namespace Lab4 {
                 if (getDictionaryType(database) != CurrentDictionary) {
                     ShowAlert("Вы пытаетесь загрузить не тот словарь! Нажмите кнопку '" + this.directionButton.Text + "'");
                     return;
-                } else {
+                }
+                else {
                     if (CurrentDictionary == Edictionary.EngRus) {
                         curD = new EngRusDictionary(path);
                         er = curD;
-                    } else if (CurrentDictionary == Edictionary.RusEng) {
+                    }
+                    else if (CurrentDictionary == Edictionary.RusEng) {
                         curD = new RusEngDictionary(path);
                         re = curD;
-                    }                    
+                    }
                     bRightShow = false;
                     leftWord = null;
-                    currentWord = 0;                    
+                    currentWord = 0;
                     ShowAlert("Словарь успешно загружен!");
                     bLeftShow = true;
                     Refresh();
@@ -166,18 +184,18 @@ namespace Lab4 {
             InitRect();
             if (bLeftShow) {
                 leftWord = curD.Keys[currentWord];
-                lg.DrawString(leftWord.Value, f, Brushes.Black, drawRect, sf);                                    
-            }            
+                lg.DrawString(leftWord.Value, f, Brushes.Black, drawRect, sf);
+            }
         }
 
         private void RightPanel_Paint(object sender, PaintEventArgs e) {
             rg = e.Graphics;
             InitRect();
-            if (bRightShow) {                
+            if (bRightShow) {
                 rightString = curD.getValues(curD[leftWord]);
-                rg.DrawString(rightString, f, Brushes.Black, drawRect, sf);                
+                rg.DrawString(rightString, f, Brushes.Black, drawRect, sf);
             }
-        }        
+        }
 
         private void NextButton_Click(object sender, EventArgs e) {
             if (curD.Keys.Length <= 0)
@@ -232,11 +250,11 @@ namespace Lab4 {
                 this.Close();
             }
         }
-        
+
         public static DialogResult ShowConfirmation(string text, string caption) {
-                return MessageBox.Show(text, caption,
-                                 MessageBoxButtons.YesNo,
-                                 MessageBoxIcon.Question);
+            return MessageBox.Show(text, caption,
+                             MessageBoxButtons.YesNo,
+                             MessageBoxIcon.Question);
         }
 
         public static void ShowAlert(string text) {
@@ -252,5 +270,5 @@ namespace Lab4 {
             float height = 150.0F;
             drawRect = new RectangleF(x, y, width, height);
         }
-    }    
+    }
 }

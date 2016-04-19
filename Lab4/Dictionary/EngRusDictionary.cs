@@ -15,8 +15,8 @@ namespace Lab4.Dictionary {
         public EngRusDictionary() {
             this.dict = new Dictionary<EnglishWord, IEnumerable<RussianWord>>();
             addToDict(new EnglishWord("Cat", "noun"), new RussianWord("Кошка"));
-            //addToDict(new EnglishWord("Dog", "noun"), new RussianWord("Собака"));
-            //addToDict(new EnglishWord("Bag", "noun"), new List<RussianWord>() { new RussianWord("Сумка"), new RussianWord("Пакет") });
+            addToDict(new EnglishWord("Dog", "noun"), new RussianWord("Собака"));
+            addToDict(new EnglishWord("Bag", "noun"), new List<RussianWord>() { new RussianWord("Сумка"), new RussianWord("Пакет") });
         }
 
         public EngRusDictionary(string path) {
@@ -30,7 +30,7 @@ namespace Lab4.Dictionary {
                 string wordType = cells[2].Value;
                 try {
                     if (rusWord.Contains(';')) {
-                        List <String> rusWords = rusWord.Split(';').ToList();
+                        List<String> rusWords = rusWord.Split(';').ToList();
                         List<RussianWord> rusList = new List<RussianWord>();
                         foreach (var r in rusWords)
                             rusList.Add(new RussianWord(r));
@@ -41,7 +41,7 @@ namespace Lab4.Dictionary {
                 }
                 catch (Exception) { }
             }
-                
+
             /*FileStream sr = new FileStream(path, FileMode.Open);
             XmlReader xmlReader1 = XmlReader.Create(sr);
             xmlReader1.MoveToContent();
@@ -66,10 +66,10 @@ namespace Lab4.Dictionary {
         public override Word[] Keys {
             get { return this.dict.Keys.ToArray(); }
         }
-        
+
         public override void addToDict(Word w, IEnumerable<Word> v) {
             if (!this.Dict.ContainsKey((EnglishWord)w))
-                this.Dict.Add((EnglishWord) w, (List<RussianWord>) v);
+                this.Dict.Add((EnglishWord)w, (List<RussianWord>)v);
         }
 
         public override void addToDict(Word w, Word v) {
@@ -81,15 +81,15 @@ namespace Lab4.Dictionary {
         }
 
         public override void removeFromDict(Word w) {
-            this.Dict.Remove((EnglishWord) w);
-        }        
-        
+            this.Dict.Remove((EnglishWord)w);
+        }
+
         public override string printDict() {
             string s = "";
             foreach (var w in this.Dict.Keys) {
                 s += "Key=" + w.Value + ", Val=" + getValues(this.Dict[w]) + "\n";
             }
             return s;
-        }        
+        }
     }
 }
