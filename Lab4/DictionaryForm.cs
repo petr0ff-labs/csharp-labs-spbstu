@@ -48,7 +48,33 @@ namespace Lab4 {
             this.saveAsToolStripMenuItem.Click += SaveAsToolStripMenuItem_Click;
             this.viewCardsToolStripMenuItem.DropDownOpening += ViewCardsToolStripMenuItem_DropDownOpening;
             this.viewCardsList.SelectedIndexChanged += ViewCardsList_SelectedIndexChanged;
+            this.deleteCardToolStripMenuItem.DropDownOpening += DeleteCardToolStripMenuItem_DropDownOpening;
+            this.deleteCardsList.SelectedIndexChanged += DeleteCardsList_SelectedIndexChanged;
             FormClosing += DictionaryForm_FormClosing;            
+        }
+
+        private void DeleteCardsList_SelectedIndexChanged(object sender, EventArgs e) {
+            string word = this.deleteCardsList.SelectedItem.ToString();
+            if (ShowConfirmation("Вы уверены что хотите удалить карточку '" + word + "'?", "Удаление") == DialogResult.Yes) {
+                curD.removeFromDict(curD.getWord(word));
+                this.toolsToolStripMenuItem.HideDropDown();
+                currentWord = 0;
+                leftWord = null;
+                bLeftShow = false;
+                bRightShow = false;
+                ShowAlert("Карточка успешно удалена!");
+                Refresh();
+            }
+        }
+
+        private void DeleteCardToolStripMenuItem_DropDownOpening(object sender, EventArgs e) {
+            if (curD.Keys.Length <= 0)
+                this.deleteCardsList.Text = "Всё уже удалено";
+            else
+                this.deleteCardsList.Text = "Выберите слово";
+            this.deleteCardsList.Items.Clear();
+            foreach (var w in curD.Keys)
+                this.deleteCardsList.Items.Add(w.Value);
         }
 
         private void ViewCardsList_SelectedIndexChanged(object sender, EventArgs e) {
@@ -60,15 +86,13 @@ namespace Lab4 {
         }
 
         private void ViewCardsToolStripMenuItem_DropDownOpening(object sender, EventArgs e) {
-            this.viewCardsList.Text = "Выберите слово";
+            if (curD.Keys.Length <= 0)
+                this.viewCardsList.Text = "Словарь пуст";
+            else
+                this.viewCardsList.Text = "Выберите слово";
             this.viewCardsList.Items.Clear();
-            //this.viewCardsList.ComboBox.DataSource = (curD.Keys.Select(x => x.Value)).ToList();
             foreach (var w in curD.Keys)
                 this.viewCardsList.Items.Add(w.Value);            
-        }
-
-        private void DeleteCardToolStripMenuItem_Click(object sender, EventArgs e) {
-            throw new NotImplementedException();
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -133,7 +157,7 @@ namespace Lab4 {
             data += "Глаголов: " + curD.Keys.Where(c => c.Type.Equals(WordType.VERB)).Select(x => x).ToList().Count.ToString() + "\n";
             data += "Наречий: " + curD.Keys.Where(c => c.Type.Equals(WordType.ADVERB)).Select(x => x).ToList().Count.ToString() + "\n";
             data += "Выражений: " + curD.Keys.Where(c => c.Type.Equals(WordType.EXPRESSION)).Select(x => x).ToList().Count.ToString() + "\n";
-            data += "Не определенных типов: " + curD.Keys.Where(c => c.Type.Equals("")).Select(x => x).ToList().Count.ToString() + "\n";
+            data += "Не определенных типов: " + curD.Keys.Where(c => !WordType.KNOWN_TYPES.Contains(c.Type)).Select(x => x).ToList().Count.ToString() + "\n";
             ShowAlert(data);
         }
 
@@ -156,12 +180,19 @@ namespace Lab4 {
         }        
 
         private void NextButton_Click(object sender, EventArgs e) {
-            bLeftShow = true;
-            bRightShow = false;
-            currentWord += 1;
-            if (currentWord >= curD.Keys.Length)
-                currentWord = 0;
-            Refresh();
+            if (curD.Keys.Length <= 0)
+                ShowAlert("В словаре нет карточек! Нажмите '" + this.toolsToolStripMenuItem.Text + " > " + this.addCardToolStripMenuItem.Text + "' чтобы добавить карточки.");
+            else {
+                if (curD.Keys.Length <= 0)
+                    bLeftShow = false;
+                else
+                    bLeftShow = true;
+                bRightShow = false;
+                currentWord += 1;
+                if (currentWord >= curD.Keys.Length)
+                    currentWord = 0;
+                Refresh();
+            }
         }
 
         private void TranslateButton_Click(object sender, EventArgs e) {

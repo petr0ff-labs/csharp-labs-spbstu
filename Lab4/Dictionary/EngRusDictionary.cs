@@ -15,8 +15,8 @@ namespace Lab4.Dictionary {
         public EngRusDictionary() {
             this.dict = new Dictionary<EnglishWord, IEnumerable<RussianWord>>();
             addToDict(new EnglishWord("Cat", "noun"), new RussianWord("Кошка"));
-            addToDict(new EnglishWord("Dog", "noun"), new RussianWord("Собака"));
-            addToDict(new EnglishWord("Bag", "noun"), new List<RussianWord>() { new RussianWord("Сумка"), new RussianWord("Пакет") });
+            //addToDict(new EnglishWord("Dog", "noun"), new RussianWord("Собака"));
+            //addToDict(new EnglishWord("Bag", "noun"), new List<RussianWord>() { new RussianWord("Сумка"), new RussianWord("Пакет") });
         }
 
         public EngRusDictionary(string path) {

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace Lab4.Dictionary {
     public sealed class WordType {
 
+        public static string[] KNOWN_TYPES = { "noun", "adverb", "verb", "expression", "adjective" };
+
         public static string NOUN {
             get { return "noun"; }
         }
@@ -25,6 +27,6 @@ namespace Lab4.Dictionary {
 
         public static string ADJECTIVE {
             get { return "adjective"; }
-        }
+        }        
     }
 }
