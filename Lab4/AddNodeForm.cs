@@ -39,7 +39,7 @@ namespace Lab4 {
 
         private void AddNodeButton_Click(object sender, EventArgs e) {
             word = this.textBox1.Text;
-            foreach (var w in DictionaryForm.curD.Keys)
+            foreach (var w in DictionaryForm.CurrentD.Keys)
                 if (w.Value.Equals(word))
                     exists = true;
             if (!exists) {
@@ -52,14 +52,14 @@ namespace Lab4 {
                     foreach (var r in words)
                         dictValues.Add(new RussianWord(r));
                     Console.WriteLine(dictValues.Count);
-                    DictionaryForm.curD.addToDict(w, dictValues);
+                    DictionaryForm.CurrentD.addToDict(w, dictValues);
                 }
                 else if (DictionaryForm.CurrentDictionary == DictionaryForm.Edictionary.RusEng) {
                     List<EnglishWord> dictValues = new List<EnglishWord>();
                     RussianWord w = new RussianWord(word);
                     foreach (var r in words)
                         dictValues.Add(new EnglishWord(r));
-                    DictionaryForm.curD.addToDict(w, dictValues);
+                    DictionaryForm.CurrentD.addToDict(w, dictValues);
                 }
                 DictionaryForm.ShowAlert("Добавлено!");
             }

@@ -19,12 +19,12 @@ namespace Lab4 {
         private StringFormat sf;
         private Graphics lg, rg;
         private static int currentWord;
-        public static ADictionary curD, er, re;
+        private static ADictionary curD, er, re;
         private Font f;
         private Word leftWord;
-        private string rightString;
-        public enum Edictionary { EngRus, RusEng };
+        private string rightString;        
         private static Edictionary curDict;
+        public enum Edictionary { EngRus, RusEng };
 
         public DictionaryForm() {
             sf = new StringFormat();
@@ -92,11 +92,12 @@ namespace Lab4 {
                     } else if (CurrentDictionary == Edictionary.RusEng) {
                         curD = new RusEngDictionary(path);
                         re = curD;
-                    }
-                    bLeftShow = false;
+                    }                    
                     bRightShow = false;
                     leftWord = null;
-                    currentWord = 0;
+                    currentWord = 0;                    
+                    ShowAlert("Словарь успешно загружен!");
+                    bLeftShow = true;
                     Refresh();
                 }
             }
@@ -114,7 +115,11 @@ namespace Lab4 {
         public static Edictionary CurrentDictionary {
             get { return curDict; }
         }
-        
+
+        public static ADictionary CurrentD {
+            get { return curD; }
+        }
+
         private void AddCardToolStripMenuItem_Click(object sender, EventArgs e) {
             var addNodeForm = new AddNodeForm();
             addNodeForm.Show(this);
