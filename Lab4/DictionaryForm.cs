@@ -14,7 +14,7 @@ using System.Xml.Linq;
 
 namespace Lab4 {    
     public partial class DictionaryForm : Form {
-        private bool bExit, bLeftShow, bRightShow, bChangeDir, bSelected;
+        private bool bExit, bLeftShow, bRightShow;
         private RectangleF drawRect;
         private StringFormat sf;
         private Graphics lg, rg;
@@ -52,19 +52,17 @@ namespace Lab4 {
         }
 
         private void ViewCardsList_SelectedIndexChanged(object sender, EventArgs e) {
-            Console.WriteLine(this.viewCardsList.SelectedItem.ToString());   
             currentWord = Array.IndexOf(curD.Keys, curD.getWord(this.viewCardsList.SelectedItem.ToString()));
-            Console.WriteLine(currentWord);
             this.toolsToolStripMenuItem.HideDropDown();
             bLeftShow = true;
             bRightShow = false;
-            bSelected = true;
             Refresh();
         }
 
         private void ViewCardsToolStripMenuItem_DropDownOpening(object sender, EventArgs e) {
             this.viewCardsList.Text = "Выберите слово";
             this.viewCardsList.Items.Clear();
+            //this.viewCardsList.ComboBox.DataSource = (curD.Keys.Select(x => x.Value)).ToList();
             foreach (var w in curD.Keys)
                 this.viewCardsList.Items.Add(w.Value);            
         }
@@ -84,9 +82,7 @@ namespace Lab4 {
             if (openFileDialog1.ShowDialog() == DialogResult.OK) {
                 string path = openFileDialog1.InitialDirectory + openFileDialog1.FileName;
                 XDocument database = XDocument.Load(path);
-                List<XElement> entries = database.Descendants("Row").ToList();
-                string firstWord = entries[0].Elements().ToList()[0].Value;
-                if ((Regex.IsMatch(firstWord, "^[a-zA-Z0-9]*$") && CurrentDictionary == Edictionary.RusEng) || !Regex.IsMatch(firstWord, "^[a-zA-Z0-9]*$") && CurrentDictionary == Edictionary.EngRus) {
+                if (getDictionaryType(database) != CurrentDictionary) {
                     ShowAlert("Вы пытаетесь загрузить не тот словарь! Нажмите кнопку '" + this.directionButton.Text + "'");
                     return;
                 } else {
@@ -99,12 +95,20 @@ namespace Lab4 {
                     }
                     bLeftShow = false;
                     bRightShow = false;
-                    bSelected = false;
                     leftWord = null;
                     currentWord = 0;
                     Refresh();
                 }
             }
+        }
+
+        private Edictionary getDictionaryType(XDocument d) {
+            List<XElement> entries = d.Descendants("Row").ToList();
+            string firstWord = entries[0].Elements().ToList()[0].Value;
+            if (Regex.IsMatch(firstWord, "^[a-zA-Z0-9]*$"))
+                return Edictionary.EngRus;
+            else
+                return Edictionary.RusEng;
         }
 
         public static Edictionary CurrentDictionary {
@@ -142,18 +146,13 @@ namespace Lab4 {
             InitRect();
             if (bRightShow) {                
                 rightString = curD.getValues(curD[leftWord]);
-                rg.DrawString(rightString, f, Brushes.Black, drawRect, sf);
-                if (!bSelected)
-                    currentWord += 1;
-                if (currentWord >= curD.Keys.Length)
-                    currentWord = 0;
+                rg.DrawString(rightString, f, Brushes.Black, drawRect, sf);                
             }
         }        
 
         private void NextButton_Click(object sender, EventArgs e) {
             bLeftShow = true;
             bRightShow = false;
-            bSelected = false;
             currentWord += 1;
             if (currentWord >= curD.Keys.Length)
                 currentWord = 0;
@@ -181,9 +180,7 @@ namespace Lab4 {
             this.rightPanelHeader.Text = leftText;
             leftWord = null;
             currentWord = 0;
-            bSelected = false;
             bRightShow = false;
-            bChangeDir = true;
             Refresh();
         }
 
