@@ -12,6 +12,8 @@ namespace Lab4.Dictionary {
 
         public EnglishWord(string w) : this(w, "") { }
 
+        public EnglishWord() { }
+
         public EnglishWord(string w, string t, string tr) : this(w, t) {
             this.transcription = tr;
         }
