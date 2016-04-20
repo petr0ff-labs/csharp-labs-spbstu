@@ -29,6 +29,7 @@
             this.answerTextBox = new System.Windows.Forms.TextBox();
             this.answerButton = new System.Windows.Forms.Button();
             this.countLabel = new System.Windows.Forms.Label();
+            this.dontKnowButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // welcomeLabel
@@ -73,7 +74,7 @@
             // answerButton
             // 
             this.answerButton.Font = new System.Drawing.Font("HP Simplified", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.answerButton.Location = new System.Drawing.Point(204, 238);
+            this.answerButton.Location = new System.Drawing.Point(112, 238);
             this.answerButton.Name = "answerButton";
             this.answerButton.Size = new System.Drawing.Size(130, 45);
             this.answerButton.TabIndex = 4;
@@ -91,11 +92,22 @@
             this.countLabel.Text = "Вопрос";
             this.countLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dontKnowButton
+            // 
+            this.dontKnowButton.Font = new System.Drawing.Font("HP Simplified", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dontKnowButton.Location = new System.Drawing.Point(288, 238);
+            this.dontKnowButton.Name = "dontKnowButton";
+            this.dontKnowButton.Size = new System.Drawing.Size(130, 45);
+            this.dontKnowButton.TabIndex = 6;
+            this.dontKnowButton.Text = "Не знаю";
+            this.dontKnowButton.UseVisualStyleBackColor = true;
+            // 
             // TestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 295);
+            this.Controls.Add(this.dontKnowButton);
             this.Controls.Add(this.countLabel);
             this.Controls.Add(this.answerButton);
             this.Controls.Add(this.answerTextBox);
@@ -117,5 +129,6 @@
         private System.Windows.Forms.TextBox answerTextBox;
         private System.Windows.Forms.Button answerButton;
         private System.Windows.Forms.Label countLabel;
+        private System.Windows.Forms.Button dontKnowButton;
     }
 }

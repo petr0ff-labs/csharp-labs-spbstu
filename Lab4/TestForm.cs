@@ -32,8 +32,14 @@ namespace Lab4 {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
             this.answerButton.Click += AnswerButton_Click;
+            this.dontKnowButton.Click += DontKnowButton_Click;
             KeyPreview = true;
             KeyDown += new KeyEventHandler(TestFormKeyDown);
+        }
+
+        private void DontKnowButton_Click(object sender, EventArgs e) {
+            qCount++;
+            ShowQuestion();
         }
 
         private void TestFormKeyDown(object sender, KeyEventArgs e) {
