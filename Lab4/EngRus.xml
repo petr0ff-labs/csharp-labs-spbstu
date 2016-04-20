@@ -1,0 +1,1067 @@
+<?xml version="1.0"?>
+<ArrayOfRow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Oblivious</Value>
+      <Type>adjective</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Забывчивый</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Gallanter</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Галлантер</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Polity</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Полития (см. у Аристотеля)</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Bits and pieces</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Обрывки</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>True story</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Правдивая история</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Get together</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Собираются вместе</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Get finished</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Закончите</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Graphical representations</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Представлены в графическом виде</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Blackmail</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Шантажировать</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Wheat cake</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Пшеничную лепёшку</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>But frankly speaking</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Но окровенно говоря</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>I deserve</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Я заслуживаю</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>I would have gone</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Я бы</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>It is no wonder</Value>
+      <Type>expression</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Это не удивительно</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Quicksand</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Зыбучий песок</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Nagging</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Пиление по поводу, например, домашних обязанностей</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Want to hook up</Value>
+      <Type>verb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Хотят встретиться</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Attachments from</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Вложения</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Garish</Value>
+      <Type>adjective</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Показной</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>Кричащий</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Call it what you will</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Называй это как хочешь</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>A skeleton in the cupboard</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Есть скелет в шкафу</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Intrinsic</Value>
+      <Type>adverb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Внутренний</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Press release</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Пресс-релиз</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>Сообщение для печати</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Abroad</Value>
+      <Type>adverb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>За рубежом</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>За границей</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Letterbox</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Почтовый ящик</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Mailbox</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Почтовый ящик</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Newborn</Value>
+      <Type>adjective</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Новорожденный</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>In order to avoid</Value>
+      <Type>expression</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Во избежание</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>С тем чтобы избежать</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Alive and kicking</Value>
+      <Type>adjective</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Жив и здоров</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>More often than not</Value>
+      <Type>adverb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Чаще всего</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Piano man</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Пианист</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Touch-centric</Value>
+      <Type>adjective</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Сенсорно-ориентированный</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Should it be the case</Value>
+      <Type>expression</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Если это будет так</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>В этом случае</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>На этот случай</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Time and again</Value>
+      <Type>adverb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Неоднократно</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>Вновь и вновь</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Once and for all</Value>
+      <Type>adverb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Раз и навсегда</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>In any case</Value>
+      <Type>adverb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>В любом случае</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>How old are you</Value>
+      <Type>expression</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Сколько тебе лет</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>Сколько вам лет</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Dance floor</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Танцпол</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Dancing shoes</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Танцевальные туфли</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Dance lessons</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Уроки танцев</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Halibut</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Палтус</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Pine tree</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Сосна</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Shoe polish</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Крем для обуви</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>Гуталин</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Shoe shine</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Чистка Обуви</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Printer driver</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Драйвер принтера</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Dinner table</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Обеденный стол</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Competitive advantage</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Конкурентное преимущество</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Roll the dice</Value>
+      <Type>verb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Бросить кости</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Catch a train</Value>
+      <Type>verb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Успеть на поезд</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Job seekers</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Ищущие работу</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Gruel</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Каша</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Late at night</Value>
+      <Type>adverb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Поздно ночью</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>Поздно вечером</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Early in the morning</Value>
+      <Type>adverb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Рано утром</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Next in line</Value>
+      <Type>adjective</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Следующий в очереди</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Whenever</Value>
+      <Type>expression</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Всякий раз</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>Когда</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>Когда бы</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>Как только</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Whenever possible</Value>
+      <Type>expression</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>По мере возможности</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>Когда это возможно</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Whenever you can</Value>
+      <Type>expression</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Когда сможешь</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Phone bill</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Телефонный счет</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Advertising agency</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Рекламное агентство</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Accounts receivable</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Дебиторской задолженности</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>Счета дебиторов</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Line of business</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Деятельность</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Punch line</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Вывод</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>Изюминка</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>With all due respect</Value>
+      <Type>adverb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>При всем уважении</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Red tape</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Бюрократия</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>Волокита</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Sparkling water</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Газированная вода</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Tushy</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Задница</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Hello friend</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Привет друг</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Postcard</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Почтовая открытка</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>To return the favour</Value>
+      <Type>verb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Ответить любезностью на любезность</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Civil polity</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Гражданская форма правления</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Bond holding</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Владение облигациями</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Hun invasion</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Нашествие гуннов</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Wildfires</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Лесные пожары</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Unmanned drone</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Беспилотник</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>One-liner</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Острóта</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Gapped text</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Текст с пропусками</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Scammer</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Мошенник</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Spylog</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Журнал слежки</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Spyware</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Шпионское ПО</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Green wine</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Молодое вино</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>To go climbing</Value>
+      <Type>verb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Заниматься скалолазанием</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>To go sailing</Value>
+      <Type>verb</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Заниматься парусным спортом</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Fghfth</Value>
+      <Type />
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Fghfh</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+</ArrayOfRow>

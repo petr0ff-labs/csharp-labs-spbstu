@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<ArrayOfRow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Cat</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Кошка</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Dog</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Собака</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+  <Row>
+    <Word xsi:type="EnglishWord">
+      <Value>Bag</Value>
+      <Type>noun</Type>
+    </Word>
+    <Values>
+      <Word xsi:type="RussianWord">
+        <Value>Сумка</Value>
+        <Type />
+      </Word>
+      <Word xsi:type="RussianWord">
+        <Value>Пакет</Value>
+        <Type />
+      </Word>
+    </Values>
+  </Row>
+</ArrayOfRow>
