@@ -13,17 +13,9 @@ namespace Lab4.Dictionary {
 
         public ADictionary() { }
 
-        /*public abstract Dictionary<Word, IEnumerable<Word>> Dict {
-            get;
-        }*/
-
         abstract public IEnumerable<Word> this[Word w] { get; set; }
 
         abstract public Word[] Keys { get; }
-
-        public Dictionary<Word, IEnumerable<Word>> Dict {
-            get;
-        }
 
         abstract public void addToDict(Word w, IEnumerable<Word> v);
 
@@ -54,10 +46,11 @@ namespace Lab4.Dictionary {
         }
     }
 
-    public class item {
-        [XmlElement]
+    [XmlRoot("Table")]
+    public class Row {
+        [XmlElement("Word")]
         public Word word;
-        [XmlElement]
-        public IEnumerable<Word> value;
+        [XmlArray("Values")]
+        public List<Word> value;
     }
 }

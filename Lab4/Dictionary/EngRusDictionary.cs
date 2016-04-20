@@ -25,21 +25,25 @@ namespace Lab4.Dictionary {
             List<XElement> entries = database.Descendants("Row").ToList();
             foreach (var e in entries) {
                 List<XElement> cells = e.Elements().ToList();
-                string engWord = cells[0].Value;
-                string rusWord = cells[1].Value;
-                string wordType = cells[2].Value;
-                try {
-                    if (rusWord.Contains(';')) {
-                        List<String> rusWords = rusWord.Split(';').ToList();
-                        List<RussianWord> rusList = new List<RussianWord>();
-                        foreach (var r in rusWords)
-                            rusList.Add(new RussianWord(r));
-                        addToDict(new EnglishWord(engWord, wordType), rusList);
+                string rusWord = e.Element("Word").Element("Value").Value;
+                string wordType = e.Element("Word").Element("Type").Value;
+                List<XElement> vals = e.Element("Values").Elements().ToList();
+                List<RussianWord> wList = new List<RussianWord>();
+                foreach (var w in vals)
+                    wList.Add(new RussianWord(w.Element("Value").Value, w.Element("Type").Value));
+                addToDict(new EnglishWord(rusWord, wordType), wList);
+                /*try {
+                    if (engWord.Contains(';')) {
+                        List<String> engWords = engWord.Split(';').ToList();
+                        List<EnglishWord> engList = new List<EnglishWord>();
+                        foreach (var r in engWords)
+                            engList.Add(new EnglishWord(r));
+                        addToDict(new RussianWord(rusWord, wordType), engList);
                     }
                     else
-                        addToDict(new EnglishWord(engWord, wordType), new RussianWord(rusWord));
+                        addToDict(new RussianWord(rusWord, wordType), new EnglishWord(engWord));
                 }
-                catch (Exception) { }
+                catch (Exception) { }*/
             }
 
             /*FileStream sr = new FileStream(path, FileMode.Open);

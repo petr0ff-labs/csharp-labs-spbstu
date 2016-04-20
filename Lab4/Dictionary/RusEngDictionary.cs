@@ -25,11 +25,15 @@ namespace Lab4.Dictionary {
             XDocument database = XDocument.Load(path);
             List<XElement> entries = database.Descendants("Row").ToList();
             foreach (var e in entries) {
-                List<XElement> cells = e.Elements().ToList();
-                string rusWord = cells[0].Value;
-                string engWord = cells[1].Value;
-                string wordType = cells[2].Value;
-                try {
+                List<XElement> cells = e.Elements().ToList();                
+                string rusWord = e.Element("Word").Element("Value").Value;                
+                string wordType = e.Element("Word").Element("Type").Value;
+                List<XElement> vals = e.Element("Values").Elements().ToList();
+                List<EnglishWord> wList = new List<EnglishWord>();
+                foreach (var w in vals)
+                    wList.Add(new EnglishWord(w.Element("Value").Value, w.Element("Type").Value));
+                addToDict(new RussianWord(rusWord, wordType), wList);
+                /*try {
                     if (engWord.Contains(';')) {
                         List<String> engWords = engWord.Split(';').ToList();
                         List<EnglishWord> engList = new List<EnglishWord>();
@@ -40,14 +44,8 @@ namespace Lab4.Dictionary {
                     else
                         addToDict(new RussianWord(rusWord, wordType), new EnglishWord(engWord));
                 }
-                catch (Exception) { }
+                catch (Exception) { }*/
             }
-
-            /*FileStream sr = new FileStream(path, FileMode.Open);
-            XmlReader xmlReader1 = XmlReader.Create(sr);
-            xmlReader1.MoveToContent();
-            Console.WriteLine(xmlReader1.ReadInnerXml());
-            sr.Close();*/
         }
 
         public Dictionary<RussianWord, IEnumerable<EnglishWord>> Dict {

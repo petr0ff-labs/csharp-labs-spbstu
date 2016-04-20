@@ -31,7 +31,20 @@ namespace Lab4 {
             t.Questions = qs;            
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
-            this.answerButton.Click += AnswerButton_Click;     
+            this.answerButton.Click += AnswerButton_Click;
+            KeyPreview = true;
+            KeyDown += new KeyEventHandler(TestFormKeyDown);
+        }
+
+        private void TestFormKeyDown(object sender, KeyEventArgs e) {
+            switch (e.KeyCode) {
+                case (Keys.Enter):
+                    this.answerButton.PerformClick();
+                    break;
+                default:
+                    break;
+            }
+            e.Handled = true;
         }
 
         private void AnswerButton_Click(object sender, EventArgs e) {
@@ -61,6 +74,7 @@ namespace Lab4 {
                 DialogResult res = DictionaryForm.ShowConfirmation("Вы ответили на все вопросы! Правильных ответов: " + t.CorrectAnswers + ". Пройти тест еще раз?", "Результаты");
                 if (res == DialogResult.Yes) {
                     qCount = 0;
+                    t.CorrectAnswers = 0;
                     ShowQuestion();
                 } else {
                     this.Close();
@@ -70,6 +84,7 @@ namespace Lab4 {
                 this.countLabel.Text = "Вопрос " + (qCount + 1) + " из " + t.Questions.Count;
                 this.questionLabel.Text = t.Questions[qCount].TestQuestion;
                 this.answerTextBox.Text = "";
+                this.ActiveControl = this.answerTextBox;
             }
         }
     }

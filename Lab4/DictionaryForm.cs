@@ -104,22 +104,23 @@ namespace Lab4 {
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e) {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "XML файлы|*.xml";
+            saveFileDialog1.Filter = "XML файлы|*.xml|BIN файлы|*.bin";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK) {
-                Console.WriteLine(CurrentDictionary.ToString() + ".xml");
-                Stream sr = new FileStream(CurrentDictionary.ToString() + ".xml", FileMode.Create);
-                XmlSerializer xmlSer = new XmlSerializer(typeof(item));
-                Console.WriteLine(curD.Keys[0].GetType());
-                item i = new item() { word = curD.Keys[0], value = curD[curD.Keys[0]].ToList() };
-                xmlSer.Serialize(sr, i);
+                Stream sr = new FileStream("..\\..\\" + CurrentDictionary.ToString() + ".xml", FileMode.Create);
+                XmlSerializer xmlSer = new XmlSerializer(typeof(Row[]));
+                Row[] items = new Row[curD.Keys.Length];
+                for (int i = 0; i < curD.Keys.Length; i++)
+                    items[i] =  new Row() { word = curD.Keys[i], value = curD[curD.Keys[i]].ToList() };
+                xmlSer.Serialize(sr, items);
                 sr.Close();
+                ShowAlert("Словарь успешно сохранен!");
             }
         }
 
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e) {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "XML файлы|*.xml";
-            openFileDialog1.Title = "Выберите XML файл";
+            openFileDialog1.Filter = "XML файлы|*.xml|BIN файлы|*.bin";
+            openFileDialog1.Title = "Выберите файл";
             if (openFileDialog1.ShowDialog() == DialogResult.OK) {
                 string path = openFileDialog1.InitialDirectory + openFileDialog1.FileName;
                 XDocument database = XDocument.Load(path);
@@ -148,7 +149,7 @@ namespace Lab4 {
 
         private Edictionary getDictionaryType(XDocument d) {
             List<XElement> entries = d.Descendants("Row").ToList();
-            string firstWord = entries[0].Elements().ToList()[0].Value;
+            string firstWord = entries[0].Element("Word").Element("Value").Value;
             if (Regex.IsMatch(firstWord, "^[a-zA-Z0-9]*$"))
                 return Edictionary.EngRus;
             else
@@ -224,10 +225,12 @@ namespace Lab4 {
         private void DirectionButton_Click(object sender, EventArgs e) {
             if (curDict == Edictionary.EngRus) {
                 curDict = Edictionary.RusEng;
+                this.Text = "Русско-Английский словарь";
                 curD = re;
             }
             else {
                 curDict = Edictionary.EngRus;
+                this.Text = "Англо-Русский словарь";
                 curD = er;
             }
             string leftText = this.leftPanelHeader.Text;
