@@ -46,6 +46,7 @@ namespace Lab4.Dictionary {
         }
     }
 
+    [Serializable]
     [XmlRoot("Table")]
     public class Row {
         [XmlElement("Word")]

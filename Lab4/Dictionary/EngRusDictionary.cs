@@ -9,7 +9,12 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 
 namespace Lab4.Dictionary {
-    class EngRusDictionary : ADictionary {
+    public class EngRow {
+        public EnglishWord word;
+        public List<RussianWord> value;
+    }
+
+    public class EngRusDictionary : ADictionary {
         private Dictionary<EnglishWord, IEnumerable<RussianWord>> dict;
 
         public EngRusDictionary() {
@@ -35,7 +40,7 @@ namespace Lab4.Dictionary {
             }
         }
 
-        private EngRusDictionary(Dictionary<EnglishWord, IEnumerable<RussianWord>> d) {
+        public EngRusDictionary(Dictionary<EnglishWord, IEnumerable<RussianWord>> d) {
             this.dict = d;
         }
 

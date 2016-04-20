@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -107,12 +108,23 @@ namespace Lab4 {
             saveFileDialog1.Filter = "XML файлы|*.xml|BIN файлы|*.bin";            
             if (saveFileDialog1.ShowDialog() == DialogResult.OK) {
                 string fileName = saveFileDialog1.FileName;
+                var extension = Path.GetExtension(fileName);
                 Stream sr = new FileStream(fileName, FileMode.Create);
-                XmlSerializer xmlSer = new XmlSerializer(typeof(Row[]));
                 Row[] items = new Row[curD.Keys.Length];
                 for (int i = 0; i < curD.Keys.Length; i++)
-                    items[i] =  new Row() { word = curD.Keys[i], value = curD[curD.Keys[i]].ToList() };
-                xmlSer.Serialize(sr, items);
+                    items[i] = new Row() { word = curD.Keys[i], value = curD[curD.Keys[i]].ToList() };
+                switch (extension.ToLower()) {
+                    case ".xml":
+                        XmlSerializer xmlSer = new XmlSerializer(typeof(Row[]));
+                        xmlSer.Serialize(sr, items);
+                        break;
+                    case ".bin":
+                        BinaryFormatter fmt = new BinaryFormatter();
+                        fmt.Serialize(sr, items);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(extension);
+                }                
                 sr.Close();
                 ShowAlert("Словарь успешно сохранен!");
             }
@@ -122,22 +134,65 @@ namespace Lab4 {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.Filter = "XML файлы|*.xml|BIN файлы|*.bin";
             openFileDialog1.Title = "Выберите файл";
+            bool success = false;
             if (openFileDialog1.ShowDialog() == DialogResult.OK) {
                 string path = openFileDialog1.InitialDirectory + openFileDialog1.FileName;
-                XDocument database = XDocument.Load(path);
-                if (getDictionaryType(database) != CurrentDictionary) {
-                    ShowAlert("Вы пытаетесь загрузить не тот словарь! Нажмите кнопку '" + this.directionButton.Text + "'");
-                    return;
-                }
-                else {
-                    if (CurrentDictionary == Edictionary.EngRus) {
-                        curD = new EngRusDictionary(path);
-                        er = curD;
+                var extension = Path.GetExtension(path);
+                switch (extension.ToLower()) {
+                    case ".xml":
+                        XDocument database = XDocument.Load(path);
+                        if (getDictionaryType(database) != CurrentDictionary) {
+                            ShowAlert("Вы пытаетесь загрузить не тот словарь! Нажмите кнопку '" + this.directionButton.Text + "'");
+                            return;
+                        }
+                        else {
+                            if (CurrentDictionary == Edictionary.EngRus) {
+                                curD = new EngRusDictionary(path);
+                                er = curD;
+                            }
+                            else if (CurrentDictionary == Edictionary.RusEng) {
+                                curD = new RusEngDictionary(path);
+                                re = curD;
+                            }
+                            success = true;
+                        }
+                        break;
+                    case ".bin":
+                        BinaryFormatter fmt = new BinaryFormatter();
+                        FileStream sr = new FileStream(path, FileMode.Open);
+                        Row[] items = (Row[])fmt.Deserialize(sr);
+                        sr.Close();
+                        if (getDictionaryType(items) != CurrentDictionary) {
+                            ShowAlert("Вы пытаетесь загрузить не тот словарь! Нажмите кнопку '" + this.directionButton.Text + "'");
+                            return;
+                        }
+                        else {
+                            if (CurrentDictionary == Edictionary.EngRus) {
+                                curD = new EngRusDictionary(new Dictionary<EnglishWord, IEnumerable<RussianWord>>());
+                                foreach (var w in items) {
+                                    List<RussianWord> dictValues = new List<RussianWord>();
+                                    foreach (var v in w.value)
+                                        dictValues.Add((RussianWord)v);
+                                    curD.addToDict(w.word, dictValues);
+                                }
+                                er = curD;
+                            } else if (CurrentDictionary == Edictionary.RusEng) {
+                                curD = new RusEngDictionary(new Dictionary<RussianWord, IEnumerable<EnglishWord>>());
+                                foreach (var w in items) {
+                                    List<EnglishWord> dictValues = new List<EnglishWord>();
+                                    foreach (var v in w.value)
+                                        dictValues.Add((EnglishWord)v);
+                                    curD.addToDict(w.word, dictValues);
+                                }
+                                re = curD;
+                            }
+                            success = true;
+                            break;
+                        }
+                    default:
+                        throw new ArgumentOutOfRangeException(extension);                        
                     }
-                    else if (CurrentDictionary == Edictionary.RusEng) {
-                        curD = new RusEngDictionary(path);
-                        re = curD;
-                    }
+                if (success) {
                     bRightShow = false;
                     leftWord = null;
                     currentWord = 0;
@@ -151,6 +206,15 @@ namespace Lab4 {
         private Edictionary getDictionaryType(XDocument d) {
             List<XElement> entries = d.Descendants("Row").ToList();
             string firstWord = entries[0].Element("Word").Element("Value").Value;
+            if (Regex.IsMatch(firstWord, "^[a-zA-Z0-9]*$"))
+                return Edictionary.EngRus;
+            else
+                return Edictionary.RusEng;
+        }
+
+        private Edictionary getDictionaryType(Row[] d) {
+            string firstWord = d[0].word.Value;
+            Console.WriteLine(firstWord);
             if (Regex.IsMatch(firstWord, "^[a-zA-Z0-9]*$"))
                 return Edictionary.EngRus;
             else

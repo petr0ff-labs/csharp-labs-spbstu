@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Lab4.Dictionary {
+namespace Lab4.Dictionary {    
     [XmlInclude(typeof(RussianWord))]
     [XmlInclude(typeof(EnglishWord))]
+    [Serializable]
     abstract public class Word {
         protected string m_value;
         protected string m_type;

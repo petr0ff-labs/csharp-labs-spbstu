@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Lab4.Dictionary {
+    [Serializable]
     public class RussianWord : Word {
         public RussianWord(string w, string t) : base(w, t) { }
         public RussianWord(string w) : this(w, "") { }

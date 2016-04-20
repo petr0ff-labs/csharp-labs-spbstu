@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace Lab4.Dictionary {
-    class RusEngDictionary : ADictionary {
+    public class RusEngDictionary : ADictionary {
         private Dictionary<RussianWord, IEnumerable<EnglishWord>> dict;
 
         public RusEngDictionary() {
@@ -16,7 +16,7 @@ namespace Lab4.Dictionary {
             addToDict(new RussianWord("Сумка", "noun"), new List<EnglishWord>() { new EnglishWord("Bag") });
         }
 
-        private RusEngDictionary(Dictionary<RussianWord, IEnumerable<EnglishWord>> d) {
+        public RusEngDictionary(Dictionary<RussianWord, IEnumerable<EnglishWord>> d) {
             this.dict = d;
         }
 
