@@ -32,25 +32,7 @@ namespace Lab4.Dictionary {
                 foreach (var w in vals)
                     wList.Add(new RussianWord(w.Element("Value").Value, w.Element("Type").Value));
                 addToDict(new EnglishWord(rusWord, wordType), wList);
-                /*try {
-                    if (engWord.Contains(';')) {
-                        List<String> engWords = engWord.Split(';').ToList();
-                        List<EnglishWord> engList = new List<EnglishWord>();
-                        foreach (var r in engWords)
-                            engList.Add(new EnglishWord(r));
-                        addToDict(new RussianWord(rusWord, wordType), engList);
-                    }
-                    else
-                        addToDict(new RussianWord(rusWord, wordType), new EnglishWord(engWord));
-                }
-                catch (Exception) { }*/
             }
-
-            /*FileStream sr = new FileStream(path, FileMode.Open);
-            XmlReader xmlReader1 = XmlReader.Create(sr);
-            xmlReader1.MoveToContent();
-            Console.WriteLine(xmlReader1.ReadInnerXml());
-            sr.Close();*/
         }
 
         private EngRusDictionary(Dictionary<EnglishWord, IEnumerable<RussianWord>> d) {

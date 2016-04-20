@@ -24,7 +24,7 @@ namespace Lab4.Dictionary {
             this.dict = new Dictionary<RussianWord, IEnumerable<EnglishWord>>();
             XDocument database = XDocument.Load(path);
             List<XElement> entries = database.Descendants("Row").ToList();
-            foreach (var e in entries) {
+            foreach (var e in entries) {                
                 List<XElement> cells = e.Elements().ToList();                
                 string rusWord = e.Element("Word").Element("Value").Value;                
                 string wordType = e.Element("Word").Element("Type").Value;
@@ -33,18 +33,7 @@ namespace Lab4.Dictionary {
                 foreach (var w in vals)
                     wList.Add(new EnglishWord(w.Element("Value").Value, w.Element("Type").Value));
                 addToDict(new RussianWord(rusWord, wordType), wList);
-                /*try {
-                    if (engWord.Contains(';')) {
-                        List<String> engWords = engWord.Split(';').ToList();
-                        List<EnglishWord> engList = new List<EnglishWord>();
-                        foreach (var r in engWords)
-                            engList.Add(new EnglishWord(r));
-                        addToDict(new RussianWord(rusWord, wordType), engList);
-                    }
-                    else
-                        addToDict(new RussianWord(rusWord, wordType), new EnglishWord(engWord));
-                }
-                catch (Exception) { }*/
+                
             }
         }
 
