@@ -104,9 +104,10 @@ namespace Lab4 {
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e) {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "XML файлы|*.xml|BIN файлы|*.bin";
+            saveFileDialog1.Filter = "XML файлы|*.xml|BIN файлы|*.bin";            
             if (saveFileDialog1.ShowDialog() == DialogResult.OK) {
-                Stream sr = new FileStream("..\\..\\" + CurrentDictionary.ToString() + ".xml", FileMode.Create);
+                string fileName = saveFileDialog1.FileName;
+                Stream sr = new FileStream(fileName, FileMode.Create);
                 XmlSerializer xmlSer = new XmlSerializer(typeof(Row[]));
                 Row[] items = new Row[curD.Keys.Length];
                 for (int i = 0; i < curD.Keys.Length; i++)
