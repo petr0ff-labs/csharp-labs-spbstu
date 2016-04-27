@@ -25,9 +25,9 @@
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Leagues));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.teamsDataGridView = new System.Windows.Forms.DataGridView();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -89,7 +89,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(941, 27);
+            this.bindingNavigator1.Size = new System.Drawing.Size(937, 27);
             this.bindingNavigator1.TabIndex = 1;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -198,7 +198,7 @@
             // 
             // pictureBoxTeamLogo
             // 
-            this.pictureBoxTeamLogo.Location = new System.Drawing.Point(636, 30);
+            this.pictureBoxTeamLogo.Location = new System.Drawing.Point(635, 30);
             this.pictureBoxTeamLogo.Name = "pictureBoxTeamLogo";
             this.pictureBoxTeamLogo.Size = new System.Drawing.Size(293, 254);
             this.pictureBoxTeamLogo.TabIndex = 2;
@@ -206,24 +206,24 @@
             // 
             // propertyGridTeamDetails
             // 
-            this.propertyGridTeamDetails.Location = new System.Drawing.Point(636, 290);
+            this.propertyGridTeamDetails.Location = new System.Drawing.Point(635, 290);
             this.propertyGridTeamDetails.Name = "propertyGridTeamDetails";
-            this.propertyGridTeamDetails.Size = new System.Drawing.Size(293, 169);
+            this.propertyGridTeamDetails.Size = new System.Drawing.Size(293, 263);
             this.propertyGridTeamDetails.TabIndex = 3;
             // 
             // teamsChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.teamsChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.teamsChart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.teamsChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.teamsChart.Legends.Add(legend1);
             this.teamsChart.Location = new System.Drawing.Point(0, 290);
             this.teamsChart.Name = "teamsChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.teamsChart.Series.Add(series2);
-            this.teamsChart.Size = new System.Drawing.Size(630, 169);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.teamsChart.Series.Add(series1);
+            this.teamsChart.Size = new System.Drawing.Size(630, 263);
             this.teamsChart.TabIndex = 4;
             this.teamsChart.Text = "teamsChart";
             // 
@@ -231,12 +231,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(941, 461);
+            this.ClientSize = new System.Drawing.Size(937, 565);
             this.Controls.Add(this.teamsChart);
             this.Controls.Add(this.propertyGridTeamDetails);
             this.Controls.Add(this.pictureBoxTeamLogo);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.teamsDataGridView);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "Leagues";
             this.Text = "Российская Премьер Лига";
             ((System.ComponentModel.ISupportInitialize)(this.teamsDataGridView)).EndInit();

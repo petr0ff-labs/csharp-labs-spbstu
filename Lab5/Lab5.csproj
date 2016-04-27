@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Config.cs" />
     <Compile Include="Teams\League.cs" />
     <Compile Include="Teams\Player.cs" />
     <Compile Include="Teams\Team.cs" />

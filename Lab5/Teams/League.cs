@@ -9,6 +9,10 @@ namespace Lab5.Teams {
         private string leagueName = "Российская Премьер Лига";
         private List<Team> teams;
 
+        public League() {
+            this.teams = new List<Team>();
+        }
+
         public string LeagueName {
             get {
                 return leagueName;

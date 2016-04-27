@@ -7,6 +7,17 @@
         private int goals;
         private string country;
 
+        public Player() { }
+
+        public Player(string ln, double h, double w, int c, int g, string ctry) {
+            this.lastName = ln;
+            this.height = h;
+            this.weight = w;
+            this.caps = c;
+            this.goals = g;
+            this.country = ctry;
+        }
+
         public string LastName {
             get {
                 return lastName;
