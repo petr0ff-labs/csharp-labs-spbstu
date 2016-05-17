@@ -13,7 +13,7 @@ namespace Lab5 {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Leagues());
+            Application.Run(new LeaguesForm());
         }
     }
 }

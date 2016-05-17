@@ -1,5 +1,5 @@
 ﻿namespace Lab5 {
-    partial class Leagues {
+    partial class LeaguesForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -24,7 +24,9 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Leagues));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LeaguesForm));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -43,6 +45,9 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripOpenButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSaveButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSearchLabel = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSearchComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.pictureBoxTeamLogo = new System.Windows.Forms.PictureBox();
             this.propertyGridTeamDetails = new System.Windows.Forms.PropertyGrid();
             this.teamsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -55,11 +60,27 @@
             // 
             // teamsDataGridView
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.teamsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.teamsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.teamsDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.teamsDataGridView.Location = new System.Drawing.Point(0, 30);
             this.teamsDataGridView.Name = "teamsDataGridView";
             this.teamsDataGridView.RowTemplate.Height = 24;
-            this.teamsDataGridView.Size = new System.Drawing.Size(630, 254);
+            this.teamsDataGridView.Size = new System.Drawing.Size(665, 254);
             this.teamsDataGridView.TabIndex = 0;
             // 
             // bindingNavigator1
@@ -81,7 +102,10 @@
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
             this.toolStripOpenButton,
-            this.toolStripSaveButton});
+            this.toolStripSaveButton,
+            this.toolStripSearchLabel,
+            this.toolStripSearchComboBox,
+            this.toolStripSearchTextBox});
             this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -89,7 +113,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(937, 27);
+            this.bindingNavigator1.Size = new System.Drawing.Size(937, 28);
             this.bindingNavigator1.TabIndex = 1;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -99,14 +123,14 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(24, 25);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
-            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(55, 25);
+            this.bindingNavigatorCountItem.Text = "для {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
             // bindingNavigatorDeleteItem
@@ -115,7 +139,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(24, 25);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -124,7 +148,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 25);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -133,13 +157,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 25);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 28);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -153,7 +177,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 28);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -161,7 +185,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 25);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -170,13 +194,13 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 25);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 28);
             // 
             // toolStripOpenButton
             // 
@@ -184,7 +208,7 @@
             this.toolStripOpenButton.Image = global::Lab5.Properties.Resources.Open_6529;
             this.toolStripOpenButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripOpenButton.Name = "toolStripOpenButton";
-            this.toolStripOpenButton.Size = new System.Drawing.Size(24, 24);
+            this.toolStripOpenButton.Size = new System.Drawing.Size(24, 25);
             this.toolStripOpenButton.Text = "toolStripOpenButton";
             // 
             // toolStripSaveButton
@@ -193,22 +217,38 @@
             this.toolStripSaveButton.Image = global::Lab5.Properties.Resources.Save_6530;
             this.toolStripSaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSaveButton.Name = "toolStripSaveButton";
-            this.toolStripSaveButton.Size = new System.Drawing.Size(24, 24);
+            this.toolStripSaveButton.Size = new System.Drawing.Size(24, 25);
             this.toolStripSaveButton.Text = "toolStripSaveButton";
+            // 
+            // toolStripSearchLabel
+            // 
+            this.toolStripSearchLabel.Name = "toolStripSearchLabel";
+            this.toolStripSearchLabel.Size = new System.Drawing.Size(77, 25);
+            this.toolStripSearchLabel.Text = "Поиск по:";
+            // 
+            // toolStripSearchComboBox
+            // 
+            this.toolStripSearchComboBox.Name = "toolStripSearchComboBox";
+            this.toolStripSearchComboBox.Size = new System.Drawing.Size(121, 28);
+            // 
+            // toolStripSearchTextBox
+            // 
+            this.toolStripSearchTextBox.Name = "toolStripSearchTextBox";
+            this.toolStripSearchTextBox.Size = new System.Drawing.Size(100, 28);
             // 
             // pictureBoxTeamLogo
             // 
-            this.pictureBoxTeamLogo.Location = new System.Drawing.Point(635, 30);
+            this.pictureBoxTeamLogo.Location = new System.Drawing.Point(671, 30);
             this.pictureBoxTeamLogo.Name = "pictureBoxTeamLogo";
-            this.pictureBoxTeamLogo.Size = new System.Drawing.Size(293, 254);
+            this.pictureBoxTeamLogo.Size = new System.Drawing.Size(257, 254);
             this.pictureBoxTeamLogo.TabIndex = 2;
             this.pictureBoxTeamLogo.TabStop = false;
             // 
             // propertyGridTeamDetails
             // 
-            this.propertyGridTeamDetails.Location = new System.Drawing.Point(635, 290);
+            this.propertyGridTeamDetails.Location = new System.Drawing.Point(671, 290);
             this.propertyGridTeamDetails.Name = "propertyGridTeamDetails";
-            this.propertyGridTeamDetails.Size = new System.Drawing.Size(293, 263);
+            this.propertyGridTeamDetails.Size = new System.Drawing.Size(257, 263);
             this.propertyGridTeamDetails.TabIndex = 3;
             // 
             // teamsChart
@@ -223,11 +263,11 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.teamsChart.Series.Add(series1);
-            this.teamsChart.Size = new System.Drawing.Size(630, 263);
+            this.teamsChart.Size = new System.Drawing.Size(665, 263);
             this.teamsChart.TabIndex = 4;
             this.teamsChart.Text = "teamsChart";
             // 
-            // Leagues
+            // LeaguesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -238,7 +278,7 @@
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.teamsDataGridView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Name = "Leagues";
+            this.Name = "LeaguesForm";
             this.Text = "Российская Премьер Лига";
             ((System.ComponentModel.ISupportInitialize)(this.teamsDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
@@ -257,7 +297,6 @@
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
@@ -271,6 +310,10 @@
         private System.Windows.Forms.PictureBox pictureBoxTeamLogo;
         private System.Windows.Forms.PropertyGrid propertyGridTeamDetails;
         private System.Windows.Forms.DataVisualization.Charting.Chart teamsChart;
+        public System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
+        private System.Windows.Forms.ToolStripLabel toolStripSearchLabel;
+        private System.Windows.Forms.ToolStripComboBox toolStripSearchComboBox;
+        private System.Windows.Forms.ToolStripTextBox toolStripSearchTextBox;
     }
 }
 

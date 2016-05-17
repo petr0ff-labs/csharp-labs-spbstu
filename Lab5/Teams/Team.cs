@@ -1,16 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Xml.Serialization;
 
 namespace Lab5.Teams {
     public class Team {
+        [XmlArray]
         private List<Player> players;
         private string clubName;
         private string city;
         private int foundation;
         private string headCoach;
         private string logoPath;
-        private long budget;
+        private string stadium;
+        private int stadCapacity;
 
         public Team () { }
         public Team (string path) {
@@ -30,20 +33,10 @@ namespace Lab5.Teams {
             this.players = p;
         }
 
-        public Team(string name, string c, int year, string coach, string logo, List<Player> p, long b) : this(name, c, year, coach, logo, p) {
-            this.budget = b;
-        }
-
-        [DisplayName("Состав клуба"), Category("Состав")]
-        public List<Player> Players {
-            get {
-                return players;
-            }
-
-            set {
-                players = value;
-            }
-        }
+        public Team(string name, string c, int year, string coach, string logo, List<Player> p, string s, int b) : this(name, c, year, coach, logo, p) {
+            this.stadium = s;
+            this.stadCapacity = b;
+        }        
 
         [DisplayName("Имя клуба")]
         public string ClubName {
@@ -78,14 +71,25 @@ namespace Lab5.Teams {
             }
         }
 
-        [DisplayName("Бюджет")]
-        public long Budget {
+        [DisplayName("Стадион")]
+        public string Stadium {
             get {
-                return budget;
+                return stadium;
             }
 
             set {
-                budget = value;
+                stadium = value;
+            }
+        }
+
+        [DisplayName("Вместимость")]
+        public int StadCapacity {
+            get {
+                return stadCapacity;
+            }
+
+            set {
+                stadCapacity = value;
             }
         }
 
@@ -99,9 +103,9 @@ namespace Lab5.Teams {
                 headCoach = value;
             }
         }
-
-        [Browsable(false)]
-        //[Bindable(true)]
+                
+        [Bindable(true)]
+        [Browsable(true)]
         public string LogoPath {
             get {
                 return logoPath;
@@ -114,10 +118,24 @@ namespace Lab5.Teams {
 
         //[Browsable(false)]
         //[Bindable(true)]
-        public Bitmap Logo {
+        /*public Bitmap Logo {
             get {
                 return new Bitmap(logoPath);
             }
-        }
+            set {
+                Logo = value;
+            }
+        }*/
+
+        [DisplayName("Состав клуба"), Category("Состав")]
+        public List<Player> Players {
+            get {
+                return players;
+            }
+
+            set {
+                players = value;
+            }
+        }        
     }
 }

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<ArrayOfRow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Row>
+    <Team>
+      <Players>
+        <Player>
+          <LastName>Халк</LastName>
+          <Height>180</Height>
+          <Weight>90</Weight>
+          <Caps>100</Caps>
+          <Goals>50</Goals>
+          <Country>Бразилия</Country>
+        </Player>
+      </Players>
+      <ClubName>Зенит</ClubName>
+      <Foundation>1905</Foundation>
+      <City>СПБ</City>
+      <Budget>100000000</Budget>
+      <HeadCoach>А. Виллаш-Боаш</HeadCoach>
+      <LogoPath>C:\Studies\Разработка C#\Labs\LabsCSharp\Lab5\bin\Debug\..\..\Source\images\logos\zenit.jpg</LogoPath>
+    </Team>
+    <Players>
+      <Player>
+        <LastName>Халк</LastName>
+        <Height>180</Height>
+        <Weight>90</Weight>
+        <Caps>100</Caps>
+        <Goals>50</Goals>
+        <Country>Бразилия</Country>
+      </Player>
+    </Players>
+  </Row>
+  <Row>
+    <Team>
+      <Players>
+        <Player>
+          <LastName>Акинфеев</LastName>
+          <Height>185</Height>
+          <Weight>80</Weight>
+          <Caps>100</Caps>
+          <Goals>-50</Goals>
+          <Country>Россия</Country>
+        </Player>
+      </Players>
+      <ClubName>ЦСКА</ClubName>
+      <Foundation>1905</Foundation>
+      <City>Москва</City>
+      <Budget>80000000</Budget>
+      <HeadCoach>Л. Слуцкий</HeadCoach>
+      <LogoPath>C:\Studies\Разработка C#\Labs\LabsCSharp\Lab5\bin\Debug\..\..\Source\images\logos\cska_m-pr.jpg</LogoPath>
+    </Team>
+    <Players>
+      <Player>
+        <LastName>Акинфеев</LastName>
+        <Height>185</Height>
+        <Weight>80</Weight>
+        <Caps>100</Caps>
+        <Goals>-50</Goals>
+        <Country>Россия</Country>
+      </Player>
+    </Players>
+  </Row>
+</ArrayOfRow>

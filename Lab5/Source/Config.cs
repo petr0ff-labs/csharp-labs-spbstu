@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab5.Source {
     public sealed class Config {
-        public static string logosPath = AppDomain.CurrentDomain.BaseDirectory + "..\\..\\Source\\images\\logos\\";
+        public static string logosPath = "..\\..\\Source\\images\\logos\\";
+        public static string rplXml = "..\\..\\Source\\rpl.xml";
     }
 }
