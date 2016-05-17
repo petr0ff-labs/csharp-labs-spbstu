@@ -94,15 +94,18 @@ namespace Lab5 {
             XDocument database = XDocument.Load(path);
             List<XElement> entries = database.Descendants("Team").ToList();
             foreach (var r in entries) {
-                List<XElement> vals = r.Element("Players").Elements().ToList();
                 List<Player> players = new List<Player>();
-                foreach (var w in vals)
-                    players.Add(new Player(w.Element("LastName").Value,
-                                           Double.Parse(w.Element("Height").Value),
-                                           Double.Parse(w.Element("Weight").Value),
-                                           Int32.Parse(w.Element("Caps").Value),
-                                           Int32.Parse(w.Element("Goals").Value),
-                                           w.Element("Country").Value));
+                if (r.Element("Players") != null) {
+                    List<XElement> vals = r.Element("Players").Elements().ToList();
+                    
+                    foreach (var w in vals)
+                        players.Add(new Player(w.Element("LastName").Value,
+                                               Double.Parse(w.Element("Height").Value),
+                                               Double.Parse(w.Element("Weight").Value),
+                                               Int32.Parse(w.Element("Caps").Value),
+                                               Int32.Parse(w.Element("Goals").Value),
+                                               w.Element("Country").Value));
+                }
                 bs.Add(new Team(r.Element("ClubName").Value,
                                 r.Element("City").Value,
                                 Int32.Parse(r.Element("Foundation").Value),
